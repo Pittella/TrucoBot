@@ -3,7 +3,7 @@ package trucobot;
 public class Hand {
 
     public Card[] HandArray = new Card[3];
-    public Card CartaVazia = new Card(-1, -1, -1, "Vazia");
+    public Card CartaVazia = new Card(0, 0, 0, "Vazia");
 
     public void SetCards(Card x, Card y, Card z) {
         this.HandArray[0] = x;
@@ -31,6 +31,14 @@ public class Hand {
             }
         }
         return flor;
+    }
+
+    public boolean ChecarMaoVazia() {
+        boolean MaoVazia = false;
+        if (this.HandArray[0] == this.CartaVazia && this.HandArray[1] == this.CartaVazia && this.HandArray[2] == this.CartaVazia) {
+            MaoVazia = true;
+        }
+        return MaoVazia;
     }
 
     public int CalcEnvido() {

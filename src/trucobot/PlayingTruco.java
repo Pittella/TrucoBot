@@ -22,7 +22,7 @@ public class PlayingTruco {
 
     public void DealCards() {
         HandA.SetCards(Deck1.DeckArray[0], Deck1.DeckArray[2], Deck1.DeckArray[4]);
-        HandB.SetCards(Deck1.DeckArray[1], Deck1.DeckArray[3], Deck1.DeckArray[5]);
+        HandB.SetCards(Deck1.DeckArray[1], Deck1.DeckArray[3], Deck1.DeckArray[5]);        
     }
 
     public void Turn() {
