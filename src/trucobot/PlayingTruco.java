@@ -25,6 +25,9 @@ public class PlayingTruco {
         HandB.SetCards(Deck1.DeckArray[1], Deck1.DeckArray[3], Deck1.DeckArray[5]);        
     }
 
+    
+    
+    /*
     public void Turn() {
         int PesoA, PesoB;
         System.out.println("1/2/3 escolher carta");
@@ -72,34 +75,6 @@ public class PlayingTruco {
             System.out.println("B wins!");
         }
 
-    }
+    }*/
 
 }
-
-/*
-    public void TestarCoisasETC(){
-    Deck1.BuildDeckArray(); //Testado OK
-    Deck1.ShuffleDeckArray(); //Testado OK
-    HandA.SetCards(Deck1.DeckArray[0], Deck1.DeckArray[2], Deck1.DeckArray[4]);
-    HandB.SetCards(Deck1.DeckArray[1], Deck1.DeckArray[3], Deck1.DeckArray[5]);
-    
-    //Teste Print Baralho 
-    
-    for(int i=0;i<40;i++){
-        System.out.printf("Carta %d/%d\n", Deck1.DeckArray[i].num, Deck1.DeckArray[i].tipo);
-        } 
-    
-    
-    //Teste Print Maos 
-    System.out.println("Mao A");
-    for(int i=0;i<3;i++){
-        System.out.printf("Carta %s\n", HandA.HandArray[i].Nome);       
-    }
-    
-    System.out.println("Mao B");
-    for(int i=0;i<3;i++){
-        System.out.printf("Carta %s\n", HandB.HandArray[i].Nome);       
-    }
-    
-    
-    }  */

@@ -8,8 +8,7 @@ public class Card {
     int peso;
     int num;
     int tipo; 
-    String Nome;
-     
+    String Nome;     
     
     public Card(int peso, int num,int tipo, String Nome){
         this.peso = peso;
