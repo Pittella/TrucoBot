@@ -9,16 +9,17 @@ OBS: Tive que criar WhileVar e breaks pq em Partida() while(A.getPontos() >= 24 
  */
 package trucobot;
 
-import java.util.Scanner;
-
 public class PlayingTruco {
 
-    Deck Baralho = new Deck();
-    Scanner UsrIn = new Scanner(System.in);
+    Deck Baralho = new Deck();    
 
-    boolean WhileVar = true, OrdemMao = true, OrdemRodada = true, 
-            Truco = false, Retruco = false, Vale4 = false, 
-            Envido = false, RealEnvido = false, FaltaEnvido = false;
+    boolean WhileVar = true;
+    boolean A_PRIMEIRO_MAO = true, A_PRIMEIRO_RODADA = true;
+    boolean TRUCO = false, RETRUCO = false, VALE4 = false;
+    boolean ENVIDO = false, REAL_ENVIDO = false, FALTA_ENVIDO = false;
+    boolean EMPATE_PRIMEIRA = false, EMPATE_SEGUNDA = false, EMPATE_TERCEIRA = false;
+    boolean PRIMEIRA_RODADA;
+    boolean A_GANHOU_MAO = false, B_GANHOU_MAO = false, A_GANHOU_ENVIDO = false, B_GANHOU_ENVIDO = false;
 
     public void DealCards(Hand A, Hand B) {
         Baralho.ShuffleDeckArray();
@@ -29,24 +30,24 @@ public class PlayingTruco {
     public void Partida(Player A, Player B) {
         A.setPontos(0);
         B.setPontos(0);
-        Baralho.BuildDeckArray();        
+        Baralho.BuildDeckArray();
         System.out.printf("Partida() Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
         while (WhileVar) {
             //System.out.printf("WHILE PARTIDA Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
             DealCards(A.getPlayerHand(), B.getPlayerHand());
-            if (this.OrdemMao == true) {
+            if (this.A_PRIMEIRO_MAO == true) {
                 System.out.println(A.getNome() + " joga primeiro");
                 Mao(A, B);
-                this.OrdemMao = false;
+                this.A_PRIMEIRO_MAO = false;
             } else {
                 System.out.println(B.getNome() + " joga primeiro");
                 Mao(B, A);
-                this.OrdemMao = true;
+                this.A_PRIMEIRO_MAO = true;
             }
-            if(A.getPontos()>=24){
+            if (A.getPontos() >= 24) {
                 break;
             }
-            if(B.getPontos()>=24){
+            if (B.getPontos() >= 24) {
                 break;
             }
             System.out.printf("FIM WHILE PARTIDA Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
@@ -55,15 +56,14 @@ public class PlayingTruco {
     }
 
     public void Mao(Player A, Player B) {
-        int a = 1;
-        this.OrdemRodada = true;
-        while (WhileVar){
-            if(this.OrdemRodada==true){
-                Rodada(A,B);
-                this.OrdemRodada=false;
+        int a = 1; //Valor da Mao pode ser aumentada
+        int b = 0; //Valor de Envido        
+        this.A_PRIMEIRO_RODADA = true;
+        while (WhileVar) {
+            if (this.A_PRIMEIRO_RODADA == true) {
+                Rodada(A, B);
             } else {
-                Rodada(B,A);
-                this.OrdemRodada=true;
+                Rodada(B, A);
             }
         }
         A.IncrementaPontos(a);
@@ -71,7 +71,9 @@ public class PlayingTruco {
 
     }
 
-    public void Rodada(Player A, Player B) {
+    public void Rodada(Player A, Player B) {        
+        /*OPCOES A:JOGAR 1 CARTA, TRUCO, ENVIDO*/
+        /*OPCOES B:JOGAR 1 CARTA, TRUCO, ENVIDO, RETRUCO, AUMENTAR ENVIDO*/
 
     }
 
