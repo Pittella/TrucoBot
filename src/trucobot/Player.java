@@ -1,42 +1,38 @@
 package trucobot;
 
 /* */
-
 public class Player {
+
     public Hand PHand = new Hand();
-    boolean mao, submao;
-    int Vitorias;
+    int Pontos,Vitorias;
+
+    public void setPontos(int Pontos) {
+        this.Pontos = Pontos;
+    }
     String nome;
 
     public void setNome(String nome) {
         this.nome = nome;
     }
     
-    public String getNome() {
-        return nome;
-    }
-        
-    public void setSubmao(boolean submao) {
-        this.submao = submao;
+    public void IncrementaPontos(int a){
+        this.Pontos = this.Pontos + a;
     }
 
-    public boolean isSubmao() {
-        return submao;
+    public int getPontos() {
+        return Pontos;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public void setPlayerHand(Hand PlayerHand) {
         this.PHand = PlayerHand;
     }
 
-    public void setMao(boolean mao) {
-        this.mao = mao;
-    }
-
     public Hand getPlayerHand() {
         return PHand;
     }
 
-    public boolean isMao() {
-        return mao;
-    }
 }
