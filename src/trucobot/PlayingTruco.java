@@ -4,6 +4,8 @@
     2. Partida = Partida Inteira de Truco
     3. Mao = Fracao da Partida que vale 1 ponto e pode ser aumentada
     4. Rodada = Fracao da Mao 
+
+OBS: Tive que criar WhileVar e breaks pq em Partida() while(A.getPontos() >= 24 || B.getPontos() >= 24) nao funciona lol kkk XD
  */
 package trucobot;
 
@@ -14,7 +16,9 @@ public class PlayingTruco {
     Deck Baralho = new Deck();
     Scanner UsrIn = new Scanner(System.in);
 
-    boolean ptda = true, Ordem = true, Truco = false, Retruco = false, Vale4 = false, Envido = false, RealEnvido = false, FaltaEnvido = false;
+    boolean WhileVar = true, OrdemMao = true, OrdemRodada = true, 
+            Truco = false, Retruco = false, Vale4 = false, 
+            Envido = false, RealEnvido = false, FaltaEnvido = false;
 
     public void DealCards(Hand A, Hand B) {
         Baralho.ShuffleDeckArray();
@@ -27,17 +31,17 @@ public class PlayingTruco {
         B.setPontos(0);
         Baralho.BuildDeckArray();        
         System.out.printf("Partida() Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
-        while (ptda) {
+        while (WhileVar) {
             //System.out.printf("WHILE PARTIDA Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
             DealCards(A.getPlayerHand(), B.getPlayerHand());
-            if (this.Ordem == true) {
+            if (this.OrdemMao == true) {
                 System.out.println(A.getNome() + " joga primeiro");
                 Mao(A, B);
-                this.Ordem = false;
+                this.OrdemMao = false;
             } else {
                 System.out.println(B.getNome() + " joga primeiro");
                 Mao(B, A);
-                this.Ordem = true;
+                this.OrdemMao = true;
             }
             if(A.getPontos()>=24){
                 break;
@@ -52,12 +56,22 @@ public class PlayingTruco {
 
     public void Mao(Player A, Player B) {
         int a = 1;
+        this.OrdemRodada = true;
+        while (WhileVar){
+            if(this.OrdemRodada==true){
+                Rodada(A,B);
+                this.OrdemRodada=false;
+            } else {
+                Rodada(B,A);
+                this.OrdemRodada=true;
+            }
+        }
         A.IncrementaPontos(a);
         System.out.printf("FIM MAO Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
 
     }
 
-    public void Rodada() {
+    public void Rodada(Player A, Player B) {
 
     }
 
