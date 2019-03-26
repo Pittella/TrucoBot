@@ -51,7 +51,7 @@ public class PlayingTruco {
     }
 
     public void Mao(Player A, Player B) {
-        int a = 0;
+        int a = 1;
         A.IncrementaPontos(a);
         System.out.printf("FIM MAO Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
 
