@@ -3,10 +3,14 @@ package trucobot;
 public class TrucoBot {
 
     public static void main(String[] args) {
-        //MAIN CODE
-        PlayingTruco p = new PlayingTruco();
-        p.InitJogo();
-        p.DealCards();
+        Player Mario = new Player();
+        Player Luigi = new Player();
+        Mario.setNome("Mario");
+        Luigi.setNome("Luigi");
+        
+        PlayingTruco JogoDeTruco = new PlayingTruco();
+        JogoDeTruco.Partida(Mario, Luigi);
+        
 
     }
 

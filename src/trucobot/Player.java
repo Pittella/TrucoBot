@@ -3,10 +3,19 @@ package trucobot;
 /* */
 
 public class Player {
-    public Hand PlayerHand = new Hand();
+    public Hand PHand = new Hand();
     boolean mao, submao;
     int Vitorias;
+    String nome;
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+        
     public void setSubmao(boolean submao) {
         this.submao = submao;
     }
@@ -16,7 +25,7 @@ public class Player {
     }
 
     public void setPlayerHand(Hand PlayerHand) {
-        this.PlayerHand = PlayerHand;
+        this.PHand = PlayerHand;
     }
 
     public void setMao(boolean mao) {
@@ -24,7 +33,7 @@ public class Player {
     }
 
     public Hand getPlayerHand() {
-        return PlayerHand;
+        return PHand;
     }
 
     public boolean isMao() {
