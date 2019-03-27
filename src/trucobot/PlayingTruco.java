@@ -1,11 +1,9 @@
-/* 
-    Convencoes tomadas: 
-    1. A = Primeiro a Jogar B = Segundo a Jogar
-    2. Partida = Partida Inteira de Truco
-    3. Mao = Fracao da Partida que vale 1 ponto e pode ser aumentada
-    4. Rodada = Fracao da Mao 
-
-OBS: Tive que criar WhileVar e breaks pq em Partida() while(A.getPontos() >= 24 || B.getPontos() >= 24) nao funciona lol kkk XD
+/*  
+IMPORTANTE:
+    1. A = 1st to Play B = 2nd to Play
+    2. Partida/Match = Partida Inteira de Truco/Whole Match
+    3. Mao/Hand = Can be raised, worth 1 point, has turns(max 3)
+    4. Rodada/Turn = Single dispute, may call TrucoETC to raise Hand.
  */
 package trucobot;
 
@@ -14,7 +12,7 @@ public class PlayingTruco {
     Deck Baralho = new Deck();
 
     /*Flags*/    
-    boolean _A_1st_MAO_ = true, _A_1st_RODADA_ = true;
+    boolean _A_1st_MAO_ = true, _A_1st_RODADA_ = true; //Set who plays first on each Hand and on each Turn
 
     /*Mao Counter, Rodada Counter*/
     int COUNT_MAO, COUNT_RODADA;
