@@ -1,45 +1,38 @@
 /*  
 IMPORTANTE:
     1. A = 1st to Play B = 2nd to Play
-    2. Partida/Match = Partida Inteira de Truco/Whole Match
-    3. Mao/Hand = Can be raised, worth 1 point, has turns(max 3)
-    4. Rodada/Turn = Single dispute, may call TrucoETC to raise Hand.
+    2. Match/Match = Match Inteira de Truco/Whole Match
+    3. BigTurn/Hand = Can be raised, worth 1 point, has  smalls turns(max 3)
+    4. SmallTurn/Turn = Single dispute, may call raises to raise BigTurn points.
  */
 package trucobot;
 
 public class PlayingTruco {
 
-    Deck Baralho = new Deck();
+    Deck MatchDeck = new Deck();
 
-    /*Flags*/    
-    boolean _A_1st_MAO_ = true, _A_1st_RODADA_ = true; //Set who plays first on each Hand and on each Turn
-
-    /*Mao Counter, Rodada Counter*/
-    int COUNT_MAO, COUNT_RODADA;
+    /*Flags*/
+    boolean _A_1st_BigTurn_ = true, _A_1st_SmallTurn_ = true; //Set who plays first on each Big and Small turn
 
     public void DealCards(Hand A, Hand B) {
-        Baralho.ShuffleDeckArray();
-        A.SetCards(Baralho.DeckArray[0], Baralho.DeckArray[2], Baralho.DeckArray[4]);
-        B.SetCards(Baralho.DeckArray[1], Baralho.DeckArray[3], Baralho.DeckArray[5]);
+        MatchDeck.ShuffleDeckArray();
+        A.SetCards(MatchDeck.DeckArray[0], MatchDeck.DeckArray[2], MatchDeck.DeckArray[4]);
+        B.SetCards(MatchDeck.DeckArray[1], MatchDeck.DeckArray[3], MatchDeck.DeckArray[5]);
     }
 
-    public void Partida(Player A, Player B) {
+    public void Match(Player A, Player B) {
         A.setPontos(0);
         B.setPontos(0);
-        Baralho.BuildDeckArray();
+        MatchDeck.BuildDeckArray();
         boolean loop = true;
-        System.out.printf("Começa a Partida, Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
         while (loop) {
-            //System.out.printf("WHILE PARTIDA Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
             DealCards(A.getPlayerHand(), B.getPlayerHand());
-            if (this._A_1st_MAO_ == true) {
-                System.out.println(A.getNome() + " eh Mao");
-                Mao(A, B);
-                this._A_1st_MAO_ = false;
+            if (this._A_1st_BigTurn_ == true) {
+                BigTurn(A, B);
+                this._A_1st_BigTurn_ = false;
             } else {
-                System.out.println(B.getNome() + " eh Mao");
-                Mao(B, A);
-                this._A_1st_MAO_ = true;
+                BigTurn(B, A);
+                this._A_1st_BigTurn_ = true;
             }
             if (A.getPontos() >= 24) {
                 break;
@@ -47,48 +40,34 @@ public class PlayingTruco {
             if (B.getPontos() >= 24) {
                 break;
             }
-            System.out.printf("FIM WHILE PARTIDA Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
         }
-        System.out.printf("Termina a Partida, Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
+        //Match ENDS
 
     }
 
-    public void Mao(Player A, Player B) {
-        int ValorMao = 12; //Valor da Mao pode ser aumentada
-        int ValorEnvido = 0; //Valor de Envido        
-        this.COUNT_RODADA = 0;
-        this._A_1st_RODADA_ = true;
-        boolean loop = true;
-        while (loop) {
-            if (this._A_1st_RODADA_ == true) {
-                System.out.println("joga primeiro na rodada:" + A.getNome());
-                Rodada(A, B);
+    public void BigTurn(Player A, Player B) {
+        int BigTurnWeight = 1;
+        int EnvidoWeight = 0;
+        this.COUNT_SmallTurn = 0;
+        this._A_1st_SmallTurn_ = true;
+        boolean TurnIsNotFinished = true;
+        while (TurnIsNotFinished == true) {
+            if (this._A_1st_SmallTurn_ == true) {
+                SmallTurn(A, B);
             } else {
-                System.out.println("joga primeiro na rodada:" + B.getNome());
-                Rodada(B, A);
+                SmallTurn(B, A);
             }
-            if (COUNT_RODADA >= 3) {
-                break;
-            }
-            COUNT_RODADA = COUNT_RODADA + 1;
+            //Break end current BigTurns ends
         }
-        A.IncrementaPontos(ValorMao);
-        System.out.printf("FIM MAO Pts de %d:%s Pts de %d=%s\n", A.getPontos(), A.getNome(), B.getPontos(), B.getNome());
-
+        A.IncrementaPontos(BigTurnWeight);
     }
 
-    public void Rodada(Player A, Player B) {
-        System.out.printf("Rodada Numero: %d\n", this.COUNT_RODADA);
-        System.out.println(A.getNome() + " joga");
-        System.out.println(B.getNome() + " joga");
-        System.out.println("Ver quem ganhou");
-        if (this._A_1st_RODADA_ == true) {
-            System.out.println(B.getNome() + " ganhou rodada");
-            this._A_1st_RODADA_ = false;
-        } else {
-            System.out.println(A.getNome() + " ganhou rodada");
-            this._A_1st_RODADA_ = true;
-        }
+    public void SmallTurn(Player A, Player B) {
+        //First Player gets possible options and choose
+
+        //Second Player gets possible options and choose
+        //Settle small turn
+        //check if it ends BigHand
     }
 
 }
