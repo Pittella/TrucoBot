@@ -78,7 +78,7 @@ public class PlayingTruco {
             } else {
                 SmallTurn(B, A);
             }
-            //Break end current BigTurns ends
+            //Break, end current BigTurn
         }
         //Increment winner points with BitTurnWeight
     }
