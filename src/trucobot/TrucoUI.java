@@ -1,7 +1,5 @@
 package trucobot;
 
-import java.awt.Color;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,6 +17,8 @@ public class TrucoUI extends javax.swing.JFrame {
     
     public TrucoUI() {
         initComponents();
+        btNovoJogo.setVisible(false); // partida acabou, setar para visivel
+   
     }
 
     /**
@@ -49,6 +49,8 @@ public class TrucoUI extends javax.swing.JFrame {
         Carta1P2 = new javax.swing.JLabel();
         Carta2P2 = new javax.swing.JLabel();
         Carta3P2 = new javax.swing.JLabel();
+        btIniciarPartida = new javax.swing.JButton();
+        btNovoJogo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -154,6 +156,20 @@ public class TrucoUI extends javax.swing.JFrame {
 
         Carta3P2.setText("Carta3");
 
+        btIniciarPartida.setText("Inciar Partida");
+        btIniciarPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btIniciarPartidaActionPerformed(evt);
+            }
+        });
+
+        btNovoJogo.setText("Novo Jogo");
+        btNovoJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoJogoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -169,29 +185,36 @@ public class TrucoUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Carta3P1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btEnvidoP1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btTrucoP1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbCartasP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btFugirP1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btJogarP1)))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btIniciarPartida)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btEnvidoP1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btTrucoP1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(cbCartasP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btFugirP1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btJogarP1))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(Carta2P1)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btFlorP2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(btFlorP2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btEnvidoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btNovoJogo)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btEnvidoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btTrucoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,20 +240,25 @@ public class TrucoUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(Carta2P1)
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Carta1P1)
-                            .addComponent(Carta3P1)))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btIniciarPartida)
+                                .addGap(1, 1, 1)
+                                .addComponent(Carta2P1)
+                                .addGap(48, 48, 48)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Carta1P1)
+                                    .addComponent(Carta3P1)))
+                            .addComponent(btNovoJogo)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
+                        .addGap(33, 33, 33)
                         .addComponent(Carta2P2)
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Carta1P2)
                             .addComponent(Carta3P2))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -262,6 +290,10 @@ public class TrucoUI extends javax.swing.JFrame {
 
     private void btFlorP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFlorP1ActionPerformed
         // TODO add your handling code here:
+        int chamarFlor = 1;
+        ClasseTeste chamouFlor = new ClasseTeste(); // cria variavel com valor de -1
+        chamouFlor.setFlor(chamarFlor); // seta com o valor que eu determinei quando aperta o botao
+        chamouFlor.print(); // system.out.println
     }//GEN-LAST:event_btFlorP1ActionPerformed
 
     private void btEnvidoP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnvidoP1ActionPerformed
@@ -307,6 +339,14 @@ public class TrucoUI extends javax.swing.JFrame {
     private void cbCartasP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCartasP2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCartasP2ActionPerformed
+
+    private void btIniciarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarPartidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btIniciarPartidaActionPerformed
+
+    private void btNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoJogoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btNovoJogoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -356,8 +396,10 @@ public class TrucoUI extends javax.swing.JFrame {
     private javax.swing.JButton btFlorP2;
     private javax.swing.JButton btFugirP1;
     private javax.swing.JButton btFugirP2;
+    private javax.swing.JButton btIniciarPartida;
     private javax.swing.JButton btJogarP1;
     private javax.swing.JButton btJogarP2;
+    private javax.swing.JButton btNovoJogo;
     private javax.swing.JButton btTrucoP1;
     private javax.swing.JButton btTrucoP2;
     private javax.swing.JComboBox cbCartasP1;
