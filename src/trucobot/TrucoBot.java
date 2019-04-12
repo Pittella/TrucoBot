@@ -9,8 +9,8 @@ public class TrucoBot {
         Luigi.setNome("Luigi");
         
         PlayingTruco JogoDeTruco = new PlayingTruco();
-        JogoDeTruco.Match(Mario, Luigi);
         
+        JogoDeTruco.Match(Mario, Luigi);       
 
     }
 
