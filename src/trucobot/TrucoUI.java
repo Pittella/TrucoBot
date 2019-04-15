@@ -38,6 +38,25 @@ public class TrucoUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        janelaTruco = new javax.swing.JDialog();
+        btAceitarTruco = new javax.swing.JButton();
+        btRetruco = new javax.swing.JButton();
+        btFugirTruco = new javax.swing.JButton();
+        labelPlayerChamouTruco = new javax.swing.JLabel();
+        labelChamouTruco = new javax.swing.JLabel();
+        janelaEnvido = new javax.swing.JDialog();
+        btAceitarEnvido = new javax.swing.JButton();
+        labelChamouEnvido = new javax.swing.JLabel();
+        labelPlayerChamouEnvido = new javax.swing.JLabel();
+        btRecusarEnvido = new javax.swing.JButton();
+        btRealEnvido = new javax.swing.JButton();
+        btChamarFaltaEnvido = new javax.swing.JButton();
+        janelaRetruco = new javax.swing.JDialog();
+        btAceitarRetruco = new javax.swing.JButton();
+        btVale4 = new javax.swing.JButton();
+        btFugirRetruco = new javax.swing.JButton();
+        labelPlayerChamouRetruco = new javax.swing.JLabel();
+        labelChamouRetruco = new javax.swing.JLabel();
         btFlorP1 = new javax.swing.JButton();
         btEnvidoP1 = new javax.swing.JButton();
         cbCartasP1 = new javax.swing.JComboBox();
@@ -71,6 +90,203 @@ public class TrucoUI extends javax.swing.JFrame {
         labelPlacarP2 = new javax.swing.JLabel();
         labelVezDeJogar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+
+        janelaTruco.setSize(new java.awt.Dimension(300, 195));
+
+        btAceitarTruco.setText("Aceitar");
+        btAceitarTruco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAceitarTrucoActionPerformed(evt);
+            }
+        });
+
+        btRetruco.setText("Retruco");
+        btRetruco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRetrucoActionPerformed(evt);
+            }
+        });
+
+        btFugirTruco.setText("Fugir");
+        btFugirTruco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFugirTrucoActionPerformed(evt);
+            }
+        });
+
+        labelPlayerChamouTruco.setText("Player");
+
+        labelChamouTruco.setText("chamou truco.");
+
+        javax.swing.GroupLayout janelaTrucoLayout = new javax.swing.GroupLayout(janelaTruco.getContentPane());
+        janelaTruco.getContentPane().setLayout(janelaTrucoLayout);
+        janelaTrucoLayout.setHorizontalGroup(
+            janelaTrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(janelaTrucoLayout.createSequentialGroup()
+                .addGroup(janelaTrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(janelaTrucoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btAceitarTruco)
+                        .addGap(40, 40, 40)
+                        .addComponent(btRetruco)
+                        .addGap(46, 46, 46)
+                        .addComponent(btFugirTruco))
+                    .addGroup(janelaTrucoLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(labelPlayerChamouTruco)
+                        .addGap(38, 38, 38)
+                        .addComponent(labelChamouTruco)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        janelaTrucoLayout.setVerticalGroup(
+            janelaTrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, janelaTrucoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(janelaTrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPlayerChamouTruco)
+                    .addComponent(labelChamouTruco))
+                .addGap(18, 18, 18)
+                .addGroup(janelaTrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btRetruco)
+                    .addComponent(btFugirTruco)
+                    .addComponent(btAceitarTruco))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        janelaEnvido.setSize(new java.awt.Dimension(420, 195));
+
+        btAceitarEnvido.setText("Aceitar");
+        btAceitarEnvido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAceitarEnvidoActionPerformed(evt);
+            }
+        });
+
+        labelChamouEnvido.setText("chamou envido.");
+
+        labelPlayerChamouEnvido.setText("Player");
+
+        btRecusarEnvido.setText("Recusar");
+        btRecusarEnvido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRecusarEnvidoActionPerformed(evt);
+            }
+        });
+
+        btRealEnvido.setText("Real Envido");
+        btRealEnvido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRealEnvidoActionPerformed(evt);
+            }
+        });
+
+        btChamarFaltaEnvido.setText("Falta Envido");
+        btChamarFaltaEnvido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btChamarFaltaEnvidoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout janelaEnvidoLayout = new javax.swing.GroupLayout(janelaEnvido.getContentPane());
+        janelaEnvido.getContentPane().setLayout(janelaEnvidoLayout);
+        janelaEnvidoLayout.setHorizontalGroup(
+            janelaEnvidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, janelaEnvidoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btAceitarEnvido)
+                .addGroup(janelaEnvidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(janelaEnvidoLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(labelPlayerChamouEnvido)
+                        .addGap(38, 38, 38)
+                        .addComponent(labelChamouEnvido)
+                        .addContainerGap(178, Short.MAX_VALUE))
+                    .addGroup(janelaEnvidoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btRealEnvido)
+                        .addGap(18, 18, 18)
+                        .addComponent(btChamarFaltaEnvido)
+                        .addGap(18, 18, 18)
+                        .addComponent(btRecusarEnvido)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        janelaEnvidoLayout.setVerticalGroup(
+            janelaEnvidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, janelaEnvidoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(janelaEnvidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPlayerChamouEnvido)
+                    .addComponent(labelChamouEnvido))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(janelaEnvidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btAceitarEnvido)
+                    .addComponent(btRealEnvido)
+                    .addComponent(btChamarFaltaEnvido)
+                    .addComponent(btRecusarEnvido))
+                .addContainerGap())
+        );
+
+        janelaRetruco.setSize(new java.awt.Dimension(300, 195));
+
+        btAceitarRetruco.setText("Aceitar");
+        btAceitarRetruco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAceitarRetrucoActionPerformed(evt);
+            }
+        });
+
+        btVale4.setText("Vale 4");
+        btVale4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVale4ActionPerformed(evt);
+            }
+        });
+
+        btFugirRetruco.setText("Fugir");
+        btFugirRetruco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFugirRetrucoActionPerformed(evt);
+            }
+        });
+
+        labelPlayerChamouRetruco.setText("Player");
+
+        labelChamouRetruco.setText("chamou retruco.");
+
+        javax.swing.GroupLayout janelaRetrucoLayout = new javax.swing.GroupLayout(janelaRetruco.getContentPane());
+        janelaRetruco.getContentPane().setLayout(janelaRetrucoLayout);
+        janelaRetrucoLayout.setHorizontalGroup(
+            janelaRetrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(janelaRetrucoLayout.createSequentialGroup()
+                .addGroup(janelaRetrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(janelaRetrucoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btAceitarRetruco)
+                        .addGap(40, 40, 40)
+                        .addComponent(btVale4)
+                        .addGap(46, 46, 46)
+                        .addComponent(btFugirRetruco))
+                    .addGroup(janelaRetrucoLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(labelPlayerChamouRetruco)
+                        .addGap(38, 38, 38)
+                        .addComponent(labelChamouRetruco)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        janelaRetrucoLayout.setVerticalGroup(
+            janelaRetrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, janelaRetrucoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(janelaRetrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPlayerChamouRetruco)
+                    .addComponent(labelChamouRetruco))
+                .addGap(18, 18, 18)
+                .addGroup(janelaRetrucoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btVale4)
+                    .addComponent(btFugirRetruco)
+                    .addComponent(btAceitarRetruco))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -202,14 +418,18 @@ public class TrucoUI extends javax.swing.JFrame {
 
         txtCarta3P2.setText("jTextField1");
 
+        labelScoreP1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelScoreP1.setText("scoreP1");
         labelScoreP1.setToolTipText("");
 
+        labelPlacarP1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelPlacarP1.setText("Placar P1");
 
+        labelScoreP2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelScoreP2.setText("scoreP2");
         labelScoreP2.setToolTipText("");
 
+        labelPlacarP2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelPlacarP2.setText("Placar P2");
 
         labelVezDeJogar.setText("Vez de Jogar:");
@@ -228,7 +448,7 @@ public class TrucoUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(137, Short.MAX_VALUE)
+                                .addContainerGap(127, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtCarta2P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btFlorP1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -256,10 +476,14 @@ public class TrucoUI extends javax.swing.JFrame {
                                                 .addComponent(cbCartasP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(labelScoreP1)
-                                                .addComponent(btFugirP1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(labelPlacarP1)
-                                                .addComponent(jLabel2)))))))))
+                                                .addComponent(jLabel2)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(7, 7, 7)
+                                                    .addComponent(btFugirP1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelScoreP1)
+                                            .addComponent(labelPlacarP1)))
+                                    .addGap(13, 13, 13))))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,9 +495,9 @@ public class TrucoUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelScoreP2)
+                            .addComponent(labelPlacarP2)
                             .addComponent(btNovoJogo)
-                            .addComponent(labelPlacarP2))))
+                            .addComponent(labelScoreP2))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -298,7 +522,7 @@ public class TrucoUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Carta3P2)
                             .addComponent(txtCarta3P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 136, Short.MAX_VALUE))
+                .addGap(0, 126, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btEnvidoP1, btEnvidoP2, btFlorP1, btFlorP2, btFugirP1, btFugirP2, btJogarP1, btJogarP2, btTrucoP1, btTrucoP2, cbCartasP1, cbCartasP2});
@@ -312,33 +536,38 @@ public class TrucoUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btIniciarPartida)
-                                .addGap(1, 1, 1)
-                                .addComponent(Carta2P1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(Carta2P1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtCarta2P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(Carta1P1)
                                             .addComponent(Carta3P1)))
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
                                         .addComponent(labelPlacarP1)
-                                        .addGap(20, 20, 20)
-                                        .addComponent(labelScoreP1))))
-                            .addComponent(btNovoJogo)))
+                                        .addGap(14, 14, 14)
+                                        .addComponent(labelScoreP1)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btNovoJogo)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelPlacarP2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(labelScoreP2)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(Carta2P2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCarta2P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelPlacarP2))
+                        .addComponent(txtCarta2P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Carta1P2)
-                            .addComponent(Carta3P2)
-                            .addComponent(labelScoreP2))))
+                            .addComponent(Carta3P2))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,7 +578,7 @@ public class TrucoUI extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(labelVezDeJogar)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 280, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -389,10 +618,12 @@ public class TrucoUI extends javax.swing.JFrame {
 
     private void btEnvidoP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnvidoP1ActionPerformed
         // TODO add your handling code here:
+        janelaEnvido.setVisible(true);
     }//GEN-LAST:event_btEnvidoP1ActionPerformed
 
     private void btTrucoP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTrucoP1ActionPerformed
         // TODO add your handling code here:
+        janelaTruco.setVisible(true);
     }//GEN-LAST:event_btTrucoP1ActionPerformed
 
     private void cbCartasP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCartasP1ActionPerformed
@@ -417,6 +648,7 @@ public class TrucoUI extends javax.swing.JFrame {
 
     private void btTrucoP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTrucoP2ActionPerformed
         // TODO add your handling code here:
+        janelaTruco.setVisible(true);
     }//GEN-LAST:event_btTrucoP2ActionPerformed
 
     private void btFlorP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFlorP2ActionPerformed
@@ -425,6 +657,7 @@ public class TrucoUI extends javax.swing.JFrame {
 
     private void btEnvidoP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnvidoP2ActionPerformed
         // TODO add your handling code here:
+        janelaEnvido.setVisible(true);
     }//GEN-LAST:event_btEnvidoP2ActionPerformed
 
     private void cbCartasP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCartasP2ActionPerformed
@@ -457,6 +690,57 @@ public class TrucoUI extends javax.swing.JFrame {
     private void btNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoJogoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btNovoJogoActionPerformed
+
+    private void btFugirTrucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFugirTrucoActionPerformed
+        // TODO add your handling code here:
+        janelaTruco.setVisible(false);
+    }//GEN-LAST:event_btFugirTrucoActionPerformed
+
+    private void btRecusarEnvidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRecusarEnvidoActionPerformed
+        // TODO add your handling code here:
+        janelaTruco.setVisible(false);
+    }//GEN-LAST:event_btRecusarEnvidoActionPerformed
+
+    private void btChamarFaltaEnvidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btChamarFaltaEnvidoActionPerformed
+        // TODO add your handling code here
+        janelaEnvido.setVisible(false);
+    }//GEN-LAST:event_btChamarFaltaEnvidoActionPerformed
+
+    private void btAceitarEnvidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceitarEnvidoActionPerformed
+        // TODO add your handling code here:
+        janelaEnvido.setVisible(false);
+    }//GEN-LAST:event_btAceitarEnvidoActionPerformed
+
+    private void btRealEnvidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRealEnvidoActionPerformed
+        // TODO add your handling code here:
+        janelaEnvido.setVisible(false);
+    }//GEN-LAST:event_btRealEnvidoActionPerformed
+
+    private void btAceitarTrucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceitarTrucoActionPerformed
+        // TODO add your handling code here:
+        janelaTruco.setVisible(false);
+    }//GEN-LAST:event_btAceitarTrucoActionPerformed
+
+    private void btRetrucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetrucoActionPerformed
+        // TODO add your handling code here:
+        janelaTruco.setVisible(false);
+        janelaRetruco.setVisible(true);
+    }//GEN-LAST:event_btRetrucoActionPerformed
+
+    private void btAceitarRetrucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceitarRetrucoActionPerformed
+        // TODO add your handling code here:
+        janelaRetruco.setVisible(false);
+    }//GEN-LAST:event_btAceitarRetrucoActionPerformed
+
+    private void btVale4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVale4ActionPerformed
+        // TODO add your handling code here:
+        janelaRetruco.setVisible(false);
+    }//GEN-LAST:event_btVale4ActionPerformed
+
+    private void btFugirRetrucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFugirRetrucoActionPerformed
+        // TODO add your handling code here:
+        janelaRetruco.setVisible(false);
+    }//GEN-LAST:event_btFugirRetrucoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -500,24 +784,43 @@ public class TrucoUI extends javax.swing.JFrame {
     private javax.swing.JLabel Carta2P2;
     private javax.swing.JLabel Carta3P1;
     private javax.swing.JLabel Carta3P2;
+    private javax.swing.JButton btAceitarEnvido;
+    private javax.swing.JButton btAceitarRetruco;
+    private javax.swing.JButton btAceitarTruco;
+    private javax.swing.JButton btChamarFaltaEnvido;
     private javax.swing.JButton btEnvidoP1;
     private javax.swing.JButton btEnvidoP2;
     private javax.swing.JButton btFlorP1;
     private javax.swing.JButton btFlorP2;
     private javax.swing.JButton btFugirP1;
     private javax.swing.JButton btFugirP2;
+    private javax.swing.JButton btFugirRetruco;
+    private javax.swing.JButton btFugirTruco;
     private javax.swing.JButton btIniciarPartida;
     private javax.swing.JButton btJogarP1;
     private javax.swing.JButton btJogarP2;
     private javax.swing.JButton btNovoJogo;
+    private javax.swing.JButton btRealEnvido;
+    private javax.swing.JButton btRecusarEnvido;
+    private javax.swing.JButton btRetruco;
     private javax.swing.JButton btTrucoP1;
     private javax.swing.JButton btTrucoP2;
+    private javax.swing.JButton btVale4;
     private javax.swing.JComboBox cbCartasP1;
     private javax.swing.JComboBox cbCartasP2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JDialog janelaEnvido;
+    private javax.swing.JDialog janelaRetruco;
+    private javax.swing.JDialog janelaTruco;
+    private javax.swing.JLabel labelChamouEnvido;
+    private javax.swing.JLabel labelChamouRetruco;
+    private javax.swing.JLabel labelChamouTruco;
     private javax.swing.JLabel labelPlacarP1;
     private javax.swing.JLabel labelPlacarP2;
+    private javax.swing.JLabel labelPlayerChamouEnvido;
+    private javax.swing.JLabel labelPlayerChamouRetruco;
+    private javax.swing.JLabel labelPlayerChamouTruco;
     private javax.swing.JLabel labelScoreP1;
     private javax.swing.JLabel labelScoreP2;
     private javax.swing.JLabel labelVezDeJogar;

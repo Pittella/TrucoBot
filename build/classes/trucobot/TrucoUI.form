@@ -1,6 +1,281 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JDialog" name="janelaTruco">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 195]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btAceitarTruco" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btRetruco" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="btFugirTruco" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                          <Component id="labelPlayerChamouTruco" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="labelChamouTruco" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelPlayerChamouTruco" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelChamouTruco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btRetruco" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btFugirTruco" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btAceitarTruco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="btAceitarTruco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Aceitar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAceitarTrucoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btRetruco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Retruco"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRetrucoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btFugirTruco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fugir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btFugirTrucoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelPlayerChamouTruco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Player"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelChamouTruco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="chamou truco."/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="janelaEnvido">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[420, 195]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btAceitarEnvido" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="labelPlayerChamouEnvido" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="labelChamouEnvido" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="178" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btRealEnvido" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btChamarFaltaEnvido" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btRecusarEnvido" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelPlayerChamouEnvido" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelChamouEnvido" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btAceitarEnvido" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btRealEnvido" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btChamarFaltaEnvido" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btRecusarEnvido" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="btAceitarEnvido">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Aceitar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAceitarEnvidoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelChamouEnvido">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="chamou envido."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelPlayerChamouEnvido">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Player"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btRecusarEnvido">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Recusar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRecusarEnvidoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btRealEnvido">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Real Envido"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRealEnvidoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btChamarFaltaEnvido">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Falta Envido"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btChamarFaltaEnvidoActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="janelaRetruco">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 195]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btAceitarRetruco" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btVale4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="btFugirRetruco" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                          <Component id="labelPlayerChamouRetruco" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="labelChamouRetruco" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelPlayerChamouRetruco" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelChamouRetruco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btVale4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btFugirRetruco" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btAceitarRetruco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="btAceitarRetruco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Aceitar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAceitarRetrucoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btVale4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vale 4"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btVale4ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btFugirRetruco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fugir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btFugirRetrucoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelPlayerChamouRetruco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Player"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelChamouRetruco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="chamou retruco."/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -35,7 +310,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="137" max="32767" attributes="0"/>
+                              <EmptySpace pref="127" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="txtCarta2P1" min="-2" max="-2" attributes="0"/>
                                   <Component id="btFlorP1" linkSize="1" min="-2" pref="51" max="-2" attributes="0"/>
@@ -69,13 +344,19 @@
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="labelScoreP1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btFugirP1" linkSize="1" min="-2" pref="57" max="-2" attributes="0"/>
-                                              <Component id="labelPlacarP1" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                                  <Component id="btFugirP1" linkSize="1" min="-2" pref="57" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="labelScoreP1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelPlacarP1" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
+                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -93,9 +374,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelScoreP2" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPlacarP2" min="-2" max="-2" attributes="0"/>
                           <Component id="btNovoJogo" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelPlacarP2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelScoreP2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -132,7 +413,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="136" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="126" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -145,41 +426,46 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="btIniciarPartida" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="Carta2P1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Component id="Carta2P1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="txtCarta2P1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                                      <EmptySpace pref="23" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="Carta1P1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="Carta3P1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="labelPlacarP1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       <Component id="labelScoreP1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="btNovoJogo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btNovoJogo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="labelPlacarP2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="labelScoreP2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="Carta2P2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCarta2P2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelPlacarP2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="txtCarta2P2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Carta1P2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Carta3P2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelScoreP2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -196,7 +482,7 @@
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="281" max="32767" attributes="0"/>
+              <EmptySpace pref="280" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -429,23 +715,35 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelScoreP1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="scoreP1"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelPlacarP1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Placar P1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelScoreP2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="scoreP2"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelPlacarP2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Placar P2"/>
       </Properties>
     </Component>
