@@ -35,7 +35,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                              <EmptySpace pref="137" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="txtCarta2P1" min="-2" max="-2" attributes="0"/>
                                   <Component id="btFlorP1" linkSize="1" min="-2" pref="51" max="-2" attributes="0"/>
@@ -61,12 +61,20 @@
                                   <Component id="btTrucoP1" linkSize="1" min="-2" pref="59" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="cbCartasP1" linkSize="1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="btFugirP1" linkSize="1" min="-2" pref="57" max="-2" attributes="0"/>
-                                      </Group>
                                       <Component id="btJogarP1" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="labelVezDeJogar" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cbCartasP1" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="labelScoreP1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btFugirP1" linkSize="1" min="-2" pref="57" max="-2" attributes="0"/>
+                                              <Component id="labelPlacarP1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -84,7 +92,11 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btNovoJogo" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelScoreP2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btNovoJogo" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPlacarP2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -120,7 +132,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="137" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="136" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,12 +147,21 @@
                               <Component id="btIniciarPartida" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Component id="Carta2P1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtCarta2P1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Carta1P1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Carta3P1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="txtCarta2P1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="Carta1P1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Carta3P1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelPlacarP1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="labelScoreP1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Component id="btNovoJogo" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -150,22 +171,32 @@
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="Carta2P2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtCarta2P2" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtCarta2P2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPlacarP2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Carta1P2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Carta3P2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelScoreP2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtCarta1P1" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCarta3P1" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCarta1P2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCarta3P2" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtCarta1P1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCarta3P1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCarta1P2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCarta3P2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelVezDeJogar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="286" max="32767" attributes="0"/>
+              <EmptySpace pref="281" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -394,6 +425,38 @@
     <Component class="javax.swing.JTextField" name="txtCarta3P2">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelScoreP1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="scoreP1"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelPlacarP1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Placar P1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelScoreP2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="scoreP2"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelPlacarP2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Placar P2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelVezDeJogar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vez de Jogar:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Player"/>
       </Properties>
     </Component>
   </SubComponents>
