@@ -14,17 +14,26 @@ public class TrucoUI extends javax.swing.JFrame {
     /**
      * Creates new form TrucoUI
      */
-    
+        Player Mario = new Player();
+        Player Luigi = new Player();
+        int pontosP1;
+        int pontosP2; 
+        int cartaJogada = 0;
+        int cartaJogada2 = 0;
+
+        
     public TrucoUI() {
         initComponents();
+        Mario.setNome("Mario");
+        Luigi.setNome("Luigi");
         btNovoJogo.setVisible(false); // partida acabou, setar para visivel
         btIniciarPartida.setVisible(true);
-        txtCarta1P1.setVisible(false);
-        txtCarta1P2.setVisible(false);
-        txtCarta2P1.setVisible(false);
-        txtCarta2P2.setVisible(false);
-        txtCarta3P1.setVisible(false);
-        txtCarta3P2.setVisible(false);
+        btP1Carta1.setVisible(false);
+        btP2Carta1.setVisible(false);
+        btP1Carta2.setVisible(false);
+        btP2Carta2.setVisible(false);
+        btP1Carta3.setVisible(false);
+        btP2Carta3.setVisible(false);
         
 
     }
@@ -59,16 +68,12 @@ public class TrucoUI extends javax.swing.JFrame {
         labelChamouRetruco = new javax.swing.JLabel();
         btFlorP1 = new javax.swing.JButton();
         btEnvidoP1 = new javax.swing.JButton();
-        cbCartasP1 = new javax.swing.JComboBox();
-        btJogarP1 = new javax.swing.JButton();
         btFugirP1 = new javax.swing.JButton();
         btTrucoP1 = new javax.swing.JButton();
-        btJogarP2 = new javax.swing.JButton();
         btFugirP2 = new javax.swing.JButton();
         btTrucoP2 = new javax.swing.JButton();
         btFlorP2 = new javax.swing.JButton();
         btEnvidoP2 = new javax.swing.JButton();
-        cbCartasP2 = new javax.swing.JComboBox();
         jSeparator1 = new javax.swing.JSeparator();
         Carta1P1 = new javax.swing.JLabel();
         Carta2P1 = new javax.swing.JLabel();
@@ -78,18 +83,26 @@ public class TrucoUI extends javax.swing.JFrame {
         Carta3P2 = new javax.swing.JLabel();
         btIniciarPartida = new javax.swing.JButton();
         btNovoJogo = new javax.swing.JButton();
-        txtCarta1P1 = new javax.swing.JTextField();
-        txtCarta2P1 = new javax.swing.JTextField();
-        txtCarta3P1 = new javax.swing.JTextField();
-        txtCarta2P2 = new javax.swing.JTextField();
-        txtCarta1P2 = new javax.swing.JTextField();
-        txtCarta3P2 = new javax.swing.JTextField();
         labelScoreP1 = new javax.swing.JLabel();
         labelPlacarP1 = new javax.swing.JLabel();
         labelScoreP2 = new javax.swing.JLabel();
         labelPlacarP2 = new javax.swing.JLabel();
         labelVezDeJogar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        labelCartaMesa1P1 = new javax.swing.JLabel();
+        labelCartaMesa2P1 = new javax.swing.JLabel();
+        labelCartaMesa3P1 = new javax.swing.JLabel();
+        labelCartaMesa1P2 = new javax.swing.JLabel();
+        labelCartaMesa2P2 = new javax.swing.JLabel();
+        labelCartaMesa3P2 = new javax.swing.JLabel();
+        labelRodadasP1 = new javax.swing.JLabel();
+        labelRodadasP2 = new javax.swing.JLabel();
+        btP1Carta1 = new javax.swing.JButton();
+        btP1Carta2 = new javax.swing.JButton();
+        btP1Carta3 = new javax.swing.JButton();
+        btP2Carta1 = new javax.swing.JButton();
+        btP2Carta2 = new javax.swing.JButton();
+        btP2Carta3 = new javax.swing.JButton();
 
         janelaTruco.setSize(new java.awt.Dimension(300, 195));
 
@@ -305,20 +318,6 @@ public class TrucoUI extends javax.swing.JFrame {
             }
         });
 
-        cbCartasP1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbCartasP1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCartasP1ActionPerformed(evt);
-            }
-        });
-
-        btJogarP1.setText("Jogar");
-        btJogarP1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btJogarP1ActionPerformed(evt);
-            }
-        });
-
         btFugirP1.setText("Fugir");
         btFugirP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,13 +329,6 @@ public class TrucoUI extends javax.swing.JFrame {
         btTrucoP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTrucoP1ActionPerformed(evt);
-            }
-        });
-
-        btJogarP2.setText("Jogar");
-        btJogarP2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btJogarP2ActionPerformed(evt);
             }
         });
 
@@ -365,13 +357,6 @@ public class TrucoUI extends javax.swing.JFrame {
         btEnvidoP2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEnvidoP2ActionPerformed(evt);
-            }
-        });
-
-        cbCartasP2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbCartasP2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCartasP2ActionPerformed(evt);
             }
         });
 
@@ -406,18 +391,6 @@ public class TrucoUI extends javax.swing.JFrame {
             }
         });
 
-        txtCarta1P1.setText("jTextField1");
-
-        txtCarta2P1.setText("jTextField1");
-
-        txtCarta3P1.setText("jTextField1");
-
-        txtCarta2P2.setText("jTextField1");
-
-        txtCarta1P2.setText("jTextField1");
-
-        txtCarta3P2.setText("jTextField1");
-
         labelScoreP1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelScoreP1.setText("scoreP1");
         labelScoreP1.setToolTipText("");
@@ -436,6 +409,72 @@ public class TrucoUI extends javax.swing.JFrame {
 
         jLabel2.setText("Player");
 
+        labelCartaMesa1P1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelCartaMesa1P1.setText("Carta 1");
+
+        labelCartaMesa2P1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelCartaMesa2P1.setText("Carta 2");
+
+        labelCartaMesa3P1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelCartaMesa3P1.setText("Carta 3");
+
+        labelCartaMesa1P2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelCartaMesa1P2.setText("Carta 1");
+
+        labelCartaMesa2P2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelCartaMesa2P2.setText("Carta 2");
+
+        labelCartaMesa3P2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelCartaMesa3P2.setText("Carta 3");
+
+        labelRodadasP1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelRodadasP1.setText("Rodadas:");
+
+        labelRodadasP2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelRodadasP2.setText("Rodadas:");
+
+        btP1Carta1.setText("jButton1");
+        btP1Carta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btP1Carta1ActionPerformed(evt);
+            }
+        });
+
+        btP1Carta2.setText("jButton1");
+        btP1Carta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btP1Carta2ActionPerformed(evt);
+            }
+        });
+
+        btP1Carta3.setText("jButton1");
+        btP1Carta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btP1Carta3ActionPerformed(evt);
+            }
+        });
+
+        btP2Carta1.setText("jButton1");
+        btP2Carta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btP2Carta1ActionPerformed(evt);
+            }
+        });
+
+        btP2Carta2.setText("jButton1");
+        btP2Carta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btP2Carta2ActionPerformed(evt);
+            }
+        });
+
+        btP2Carta3.setText("jButton1");
+        btP2Carta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btP2Carta3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -443,89 +482,102 @@ public class TrucoUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(Carta2P1))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(127, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtCarta2P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btFlorP1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCarta1P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Carta1P1))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btP1Carta1)
+                            .addComponent(Carta1P1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(134, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCarta3P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Carta3P1)
+                            .addComponent(btP1Carta2)
+                            .addComponent(Carta2P1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Carta3P1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btIniciarPartida)
+                        .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btIniciarPartida)
                                 .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(labelVezDeJogar)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel2))
+                                        .addComponent(labelRodadasP1))
+                                    .addGap(42, 42, 42))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btP1Carta3)
+                                    .addGap(140, 140, 140)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labelPlacarP1)
+                                        .addComponent(labelScoreP1)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(labelCartaMesa1P1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(labelCartaMesa2P1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(labelCartaMesa3P1)
+                                    .addGap(13, 13, 13))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btFlorP1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(11, 11, 11)
                                     .addComponent(btEnvidoP1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(btTrucoP1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btJogarP1)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(labelVezDeJogar)
-                                                .addComponent(cbCartasP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel2)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(7, 7, 7)
-                                                    .addComponent(btFugirP1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelScoreP1)
-                                            .addComponent(labelPlacarP1)))
-                                    .addGap(13, 13, 13))))))
+                                    .addComponent(btFugirP1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(13, 13, 13))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(btFlorP2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btEnvidoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelPlacarP2)
-                            .addComponent(btNovoJogo)
-                            .addComponent(labelScoreP2))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btTrucoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelPlacarP2)
+                                    .addComponent(btNovoJogo)
+                                    .addComponent(labelScoreP2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(btFlorP2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btEnvidoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbCartasP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btTrucoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btFugirP2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btJogarP2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btP2Carta2)
+                                    .addComponent(Carta2P2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Carta1P2)
+                                    .addComponent(btP2Carta1))
+                                .addGap(80, 80, 80)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btP2Carta3)
+                                    .addComponent(Carta3P2)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                        .addGap(26, 26, 26)
+                        .addComponent(labelCartaMesa1P2)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCarta2P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Carta2P2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Carta1P2)
-                            .addComponent(txtCarta1P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(94, 94, 94)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Carta3P2)
-                            .addComponent(txtCarta3P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 126, Short.MAX_VALUE))
+                            .addComponent(labelRodadasP2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelCartaMesa2P2)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelCartaMesa3P2)))))
+                .addGap(0, 62, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btEnvidoP1, btEnvidoP2, btFlorP1, btFlorP2, btFugirP1, btFugirP2, btJogarP1, btJogarP2, btTrucoP1, btTrucoP2, cbCartasP1, cbCartasP2});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btEnvidoP1, btEnvidoP2, btFlorP1, btFlorP2, btFugirP1, btFugirP2, btTrucoP1, btTrucoP2});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -538,72 +590,85 @@ public class TrucoUI extends javax.swing.JFrame {
                                 .addComponent(btIniciarPartida)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(Carta2P1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtCarta2P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(Carta1P1)
-                                            .addComponent(Carta3P1)))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(labelPlacarP1)
-                                        .addGap(14, 14, 14)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(labelPlacarP1)
+                                            .addComponent(btP1Carta2))
+                                        .addGap(10, 10, 10)
                                         .addComponent(labelScoreP1)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(Carta2P1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Carta3P1)
+                                            .addComponent(Carta1P1))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btP1Carta1)
+                                            .addComponent(btP1Carta3)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btNovoJogo)
                                 .addGap(18, 18, 18)
                                 .addComponent(labelPlacarP2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(labelScoreP2)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelVezDeJogar)
+                            .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(Carta2P2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCarta2P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
+                        .addGap(7, 7, 7)
+                        .addComponent(btP2Carta2)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Carta1P2)
-                            .addComponent(Carta3P2))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtCarta1P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCarta3P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCarta1P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCarta3P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labelVezDeJogar)
-                        .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 280, Short.MAX_VALUE)
+                            .addComponent(Carta3P2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btP2Carta1)
+                            .addComponent(btP2Carta3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(labelRodadasP2)
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelCartaMesa1P2)
+                            .addComponent(labelCartaMesa2P2)
+                            .addComponent(labelCartaMesa3P2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(labelRodadasP1)
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelCartaMesa1P1)
+                            .addComponent(labelCartaMesa2P1)
+                            .addComponent(labelCartaMesa3P1))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btFlorP2)
                             .addComponent(btEnvidoP2)
                             .addComponent(btFugirP2)
-                            .addComponent(btTrucoP2)
-                            .addComponent(cbCartasP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btJogarP2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
+                            .addComponent(btTrucoP2))
+                        .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbCartasP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btFugirP1)
                             .addComponent(btTrucoP1)
                             .addComponent(btEnvidoP1)
                             .addComponent(btFlorP1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btJogarP1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(42, 42, 42))))
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btEnvidoP1, btEnvidoP2, btFlorP1, btFlorP2, btFugirP1, btFugirP2, btJogarP1, btJogarP2, btTrucoP1, btTrucoP2, cbCartasP1, cbCartasP2});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btEnvidoP1, btEnvidoP2, btFlorP1, btFlorP2, btFugirP1, btFugirP2, btTrucoP1, btTrucoP2});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -626,21 +691,9 @@ public class TrucoUI extends javax.swing.JFrame {
         janelaTruco.setVisible(true);
     }//GEN-LAST:event_btTrucoP1ActionPerformed
 
-    private void cbCartasP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCartasP1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbCartasP1ActionPerformed
-
-    private void btJogarP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btJogarP1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btJogarP1ActionPerformed
-
     private void btFugirP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFugirP1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btFugirP1ActionPerformed
-
-    private void btJogarP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btJogarP2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btJogarP2ActionPerformed
 
     private void btFugirP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFugirP2ActionPerformed
         // TODO add your handling code here:
@@ -660,31 +713,31 @@ public class TrucoUI extends javax.swing.JFrame {
         janelaEnvido.setVisible(true);
     }//GEN-LAST:event_btEnvidoP2ActionPerformed
 
-    private void cbCartasP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCartasP2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbCartasP2ActionPerformed
-
     private void btIniciarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarPartidaActionPerformed
         // TODO add your handling code here:
         btIniciarPartida.setVisible(false);
-        Player Mario = new Player();
-        Player Luigi = new Player();
+
         PlayingTruco JogoDeTruco = new PlayingTruco();
         JogoDeTruco.Match(Mario, Luigi);
         Hand p1 = Mario.getPlayerHand();
         Hand p2 = Luigi.getPlayerHand();
-        txtCarta1P1.setText(p1.HandArray[0].Nome);
-        txtCarta1P2.setText(p2.HandArray[0].Nome);
-        txtCarta2P1.setText(p1.HandArray[1].Nome);
-        txtCarta2P2.setText(p2.HandArray[1].Nome);
-        txtCarta3P1.setText(p1.HandArray[2].Nome);
-        txtCarta3P2.setText(p2.HandArray[2].Nome);
-        txtCarta1P1.setVisible(true);
-        txtCarta1P2.setVisible(true);
-        txtCarta2P1.setVisible(true);
-        txtCarta2P2.setVisible(true);
-        txtCarta3P1.setVisible(true);
-        txtCarta3P2.setVisible(true);
+
+        labelPlacarP1.setText(Mario.nome);
+        labelPlacarP2.setText(Luigi.nome);
+        labelScoreP1.setText("0");
+        labelScoreP2.setText("0");
+        btP1Carta1.setText(p1.HandArray[0].Nome);
+        btP2Carta1.setText(p2.HandArray[0].Nome);
+        btP1Carta2.setText(p1.HandArray[1].Nome);
+        btP2Carta2.setText(p2.HandArray[1].Nome);
+        btP1Carta3.setText(p1.HandArray[2].Nome);
+        btP2Carta3.setText(p2.HandArray[2].Nome);
+        btP1Carta1.setVisible(true);
+        btP2Carta1.setVisible(true);
+        btP1Carta2.setVisible(true);
+        btP2Carta2.setVisible(true);
+        btP1Carta3.setVisible(true);
+        btP2Carta3.setVisible(true);
     }//GEN-LAST:event_btIniciarPartidaActionPerformed
 
     private void btNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoJogoActionPerformed
@@ -742,6 +795,151 @@ public class TrucoUI extends javax.swing.JFrame {
         janelaRetruco.setVisible(false);
     }//GEN-LAST:event_btFugirRetrucoActionPerformed
 
+    private void btP1Carta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btP1Carta1ActionPerformed
+        // TODO add your handling code here:
+        btP1Carta1.setVisible(false);
+        cartaJogada++;
+        switch (cartaJogada) {
+            case 1:
+                labelCartaMesa1P1.setText(btP1Carta1.getText());
+                break;
+
+            case 2:
+                labelCartaMesa2P1.setText(btP1Carta1.getText());
+                break;
+
+            case 3:
+                labelCartaMesa3P1.setText(btP1Carta1.getText());
+                cartaJogada = 0;
+                break;
+                
+            default:
+                // Não deve ocorrer
+                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                } 
+         
+    }//GEN-LAST:event_btP1Carta1ActionPerformed
+
+    private void btP1Carta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btP1Carta2ActionPerformed
+        // TODO add your handling code here:
+        btP1Carta2.setVisible(false);
+        
+        cartaJogada++;
+        switch (cartaJogada) {
+            case 1:
+                labelCartaMesa1P1.setText(btP1Carta2.getText());
+                break;
+
+            case 2:
+                labelCartaMesa2P1.setText(btP1Carta2.getText());
+                break;
+
+            case 3:
+                labelCartaMesa3P1.setText(btP1Carta2.getText());
+                cartaJogada = 0;
+                break;
+            default:
+                // Não deve ocorrer
+                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                }
+    }//GEN-LAST:event_btP1Carta2ActionPerformed
+
+    private void btP1Carta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btP1Carta3ActionPerformed
+        // TODO add your handling code here:
+        btP1Carta3.setVisible(false);
+        
+        cartaJogada++;
+        switch (cartaJogada) {
+            case 1:
+                labelCartaMesa1P1.setText(btP1Carta3.getText());
+                break;
+
+            case 2:
+                labelCartaMesa2P1.setText(btP1Carta3.getText());
+                break;
+
+            case 3:
+                labelCartaMesa3P1.setText(btP1Carta3.getText());
+                cartaJogada = 0;
+                break;
+            default:
+                // Não deve ocorrer
+                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                }
+    }//GEN-LAST:event_btP1Carta3ActionPerformed
+
+    private void btP2Carta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btP2Carta1ActionPerformed
+        // TODO add your handling code here:
+        btP2Carta1.setVisible(false);
+        cartaJogada2++;
+        switch (cartaJogada2) {
+            case 1:
+                labelCartaMesa1P2.setText(btP2Carta1.getText());
+                break;
+
+            case 2:
+                labelCartaMesa2P2.setText(btP2Carta1.getText());
+                break;
+
+            case 3:
+                labelCartaMesa3P2.setText(btP2Carta1.getText());
+                cartaJogada2 = 0;
+                break;
+                
+            default:
+                // Não deve ocorrer
+                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                } 
+    }//GEN-LAST:event_btP2Carta1ActionPerformed
+
+    private void btP2Carta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btP2Carta2ActionPerformed
+        // TODO add your handling code here:
+        btP2Carta2.setVisible(false);
+        cartaJogada2++;
+        switch (cartaJogada2) {
+            case 1:
+                labelCartaMesa1P2.setText(btP2Carta2.getText());
+                break;
+
+            case 2:
+                labelCartaMesa2P2.setText(btP2Carta2.getText());
+                break;
+
+            case 3:
+                labelCartaMesa3P2.setText(btP2Carta2.getText());
+                cartaJogada2 = 0;
+                break;
+                
+            default:
+                // Não deve ocorrer
+                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                } 
+    }//GEN-LAST:event_btP2Carta2ActionPerformed
+
+    private void btP2Carta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btP2Carta3ActionPerformed
+        // TODO add your handling code here:
+        btP2Carta3.setVisible(false);
+        cartaJogada2++;
+        switch (cartaJogada2) {
+            case 1:
+                labelCartaMesa1P2.setText(btP2Carta3.getText());
+                break;
+
+            case 2:
+                labelCartaMesa2P2.setText(btP2Carta3.getText());
+                break;
+
+            case 3:
+                labelCartaMesa3P2.setText(btP2Carta3.getText());
+                cartaJogada2 = 0;
+                break;
+                
+            default:
+                // Não deve ocorrer
+                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                } 
+    }//GEN-LAST:event_btP2Carta3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -797,22 +995,30 @@ public class TrucoUI extends javax.swing.JFrame {
     private javax.swing.JButton btFugirRetruco;
     private javax.swing.JButton btFugirTruco;
     private javax.swing.JButton btIniciarPartida;
-    private javax.swing.JButton btJogarP1;
-    private javax.swing.JButton btJogarP2;
     private javax.swing.JButton btNovoJogo;
+    private javax.swing.JButton btP1Carta1;
+    private javax.swing.JButton btP1Carta2;
+    private javax.swing.JButton btP1Carta3;
+    private javax.swing.JButton btP2Carta1;
+    private javax.swing.JButton btP2Carta2;
+    private javax.swing.JButton btP2Carta3;
     private javax.swing.JButton btRealEnvido;
     private javax.swing.JButton btRecusarEnvido;
     private javax.swing.JButton btRetruco;
     private javax.swing.JButton btTrucoP1;
     private javax.swing.JButton btTrucoP2;
     private javax.swing.JButton btVale4;
-    private javax.swing.JComboBox cbCartasP1;
-    private javax.swing.JComboBox cbCartasP2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JDialog janelaEnvido;
     private javax.swing.JDialog janelaRetruco;
     private javax.swing.JDialog janelaTruco;
+    private javax.swing.JLabel labelCartaMesa1P1;
+    private javax.swing.JLabel labelCartaMesa1P2;
+    private javax.swing.JLabel labelCartaMesa2P1;
+    private javax.swing.JLabel labelCartaMesa2P2;
+    private javax.swing.JLabel labelCartaMesa3P1;
+    private javax.swing.JLabel labelCartaMesa3P2;
     private javax.swing.JLabel labelChamouEnvido;
     private javax.swing.JLabel labelChamouRetruco;
     private javax.swing.JLabel labelChamouTruco;
@@ -821,14 +1027,10 @@ public class TrucoUI extends javax.swing.JFrame {
     private javax.swing.JLabel labelPlayerChamouEnvido;
     private javax.swing.JLabel labelPlayerChamouRetruco;
     private javax.swing.JLabel labelPlayerChamouTruco;
+    private javax.swing.JLabel labelRodadasP1;
+    private javax.swing.JLabel labelRodadasP2;
     private javax.swing.JLabel labelScoreP1;
     private javax.swing.JLabel labelScoreP2;
     private javax.swing.JLabel labelVezDeJogar;
-    private javax.swing.JTextField txtCarta1P1;
-    private javax.swing.JTextField txtCarta1P2;
-    private javax.swing.JTextField txtCarta2P1;
-    private javax.swing.JTextField txtCarta2P2;
-    private javax.swing.JTextField txtCarta3P1;
-    private javax.swing.JTextField txtCarta3P2;
     // End of variables declaration//GEN-END:variables
 }
