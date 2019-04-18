@@ -38,7 +38,7 @@ public class PlayingTruco {
     public Card[] MesaB = new Card[3];
 
     public boolean RodadaEmAndamento;
-   
+
     int PesoDaMao;      //Peso da Mao Em Andamento
     int PesoDeEnvido;   //Peso do envido
 
@@ -111,12 +111,10 @@ public class PlayingTruco {
     public void BigTurn(Player A, Player B) {
 
         //int BigTurnWeight = 1;
-
         //int EnvidoWeight = 0;
-        
         this.PesoDaMao = 1;
-        this.PesoDeEnvido =0;
-        
+        this.PesoDeEnvido = 0;
+
         A.setPrimeiroDaRodada(true);
         B.setPrimeiroDaRodada(false);
 
@@ -143,29 +141,44 @@ public class PlayingTruco {
     }
 
     public void SmallTurn(Player A, Player B) {
-        
+
         OpcoesDeRodada(A, B);
-        
+
         A.setPrimeiroDaRodada(false);
-        
+
         B.setPrimeiroDaRodada(true);
 
     }
 
     public void OpcoesDeRodada(Player A, Player B) {
         A.ChamouTruco = false;
-        
-        if(B.ChamouTruco == true){
-            System.out.println("Jogador "+A.getNome()+" aceitas? [1]Sim [2]Nao");
+        A.ChamouEnvido = false;
+
+        if (B.ChamouTruco == true) {
+            B.ChamouTruco = false;
+            System.out.println("Jogador " + A.getNome() + " aceitas? [1]Sim [2]Nao");
             int RespostaTruco = A.GetPlayerInput();
-            if(RespostaTruco == 1)
+            if (RespostaTruco == 1) {
                 System.out.println("Aceitastes Truco");
-            if(RespostaTruco == 2){
+            }
+            if (RespostaTruco == 2) {
                 System.out.println("Recusastes Truco");
                 RodadaEmAndamento = false;
             }
         }
-        
+
+        if (B.ChamouEnvido == true) {
+            B.ChamouEnvido = false;
+            System.out.println("Jogador " + A.getNome() + " aceitas? [1]Sim [2]Nao");
+            int RespostaTruco = A.GetPlayerInput();
+            if (RespostaTruco == 1) {
+                System.out.println("Aceitastes Envido");
+            }
+            if (RespostaTruco == 2) {
+                System.out.println("Recusastes Envido");                
+            }
+        }
+
         System.out.println("Rodada: Vez de Jogador " + A.getNome() + " suas opcoes sao:");
         A.PHand.PrintHand();
         System.out.println("[1][2][3]Jogar Cartas [4]Truco [5]Envido [6]Real Envido [7]Falta Envido [8]Flor [9]Fugir");
@@ -181,13 +194,14 @@ public class PlayingTruco {
                 break;
             case 3:
                 System.out.println("Jogador escolheu jogar terceira carta");
-                break;                
+                break;
             case 4:
                 System.out.println("Chamou Truco");
                 A.ChamouTruco = true;
                 break;
             case 5:
                 System.out.println("Chamou Envido");
+                A.ChamouEnvido = true;
                 break;
             case 6:
                 System.out.println("Chamou Real Envido");
