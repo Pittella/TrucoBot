@@ -8,8 +8,37 @@ public class Player {
     public Hand PHand = new Hand();
     int Pontos, Vitorias;
     String nome;
-
     Scanner PlayerInput = new Scanner(System.in);
+
+    //Atributos boolean para fluxo da rodada
+    public boolean JogadorMao;
+    public boolean JogadorPe;
+
+    public boolean PrimeiroDaRodada;
+    public boolean SegundoDaRodada;
+
+    public boolean ChamouEnvido;
+    public boolean ChamouTruco;
+    public boolean ChamouFlor;
+
+    
+    public void setJogadorMao(boolean JogadorMao) {
+        this.JogadorMao = JogadorMao;
+        if(JogadorMao == true)
+            this.JogadorPe = false;
+        if(JogadorMao == false)
+            this.JogadorPe = true;
+        
+    }
+
+        public void setPrimeiroDaRodada(boolean PrimeiroDaRodada) {
+        this.PrimeiroDaRodada = PrimeiroDaRodada;
+        if(PrimeiroDaRodada == true)
+            this.SegundoDaRodada = false;
+        if(PrimeiroDaRodada == false)
+            this.SegundoDaRodada = true;
+        
+    }
 
     public int GetPlayerInput() {
         return PlayerInput.nextInt();

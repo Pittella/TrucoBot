@@ -30,37 +30,42 @@
 package trucobot;
 
 public class PlayingTruco {
-    
+
     Deck MatchDeck = new Deck();
-    
+
     public Card[] MesaA = new Card[3];
-    
+
     public Card[] MesaB = new Card[3];
 
-    /*Flags*/
-    boolean _A_1st_BigTurn_ = true, _A_1st_SmallTurn_ = true; //Set who plays first on each Big and Small turn
+    public boolean RodadaEmAndamento;
+   
+    int PesoDaMao;      //Peso da Mao Em Andamento
+    int PesoDeEnvido;   //Peso do envido
 
     public void DealCards(Hand A, Hand B) {
         MatchDeck.ShuffleDeckArray();
         A.SetCards(MatchDeck.DeckArray[0], MatchDeck.DeckArray[2], MatchDeck.DeckArray[4]);
         B.SetCards(MatchDeck.DeckArray[1], MatchDeck.DeckArray[3], MatchDeck.DeckArray[5]);
     }
-    
+
     public void Match(Player A, Player B) {
-        
-        System.out.println("Iniciado Partida XD");        
-        
+
+        System.out.println("Iniciado Partida XD");
+
         System.out.println("Setando pontos " + A.getNome() + " e " + B.getNome() + " Zero");
         A.setPontos(0);
         B.setPontos(0);
-        
+
+        A.setJogadorMao(true);
+        B.setJogadorMao(false);
+
         System.out.println("Construindo deck");
         MatchDeck.BuildDeckArray();
-        
+
         boolean loop = true;
-        
+
         while (loop) {
-            
+
             DealCards(A.getPlayerHand(), B.getPlayerHand());
 
             /*
@@ -70,77 +75,137 @@ public class PlayingTruco {
              B.PHand.PrintHand();
              */
             System.out.println("Inicio da Mao");
-            
-            if (this._A_1st_BigTurn_ == true) {
-                
+
+            if (A.JogadorMao == true) {
+
                 System.out.println("A Primeiro Jogador");
-                
+
                 BigTurn(A, B);
-                
-                this._A_1st_BigTurn_ = false;
-                
+
+                B.setJogadorMao(true);
+                A.setJogadorMao(false);
+
             } else {
-                
+
                 System.out.println("B Primeiro Jogador");
-                
+
                 BigTurn(B, A);
-                
-                this._A_1st_BigTurn_ = true;
-                
+
+                A.setJogadorMao(true);
+                B.setJogadorMao(false);
+
             }
-            
-            System.out.println("Placar A->"+A.getPontos()+" X "+B.getPontos()+"<-B");
+
+            System.out.println("Placar A->" + A.getPontos() + " X " + B.getPontos() + "<-B");
             if (A.getPontos() >= 24) {
                 break;
             }
             if (B.getPontos() >= 24) {
                 break;
-            }            
+            }
         }
         //Match ENDS
 
     }
-    
+
     public void BigTurn(Player A, Player B) {
+
+        //int BigTurnWeight = 1;
+
+        //int EnvidoWeight = 0;
         
-        int BigTurnWeight = 1;
+        this.PesoDaMao = 1;
+        this.PesoDeEnvido =0;
         
-        int EnvidoWeight = 0;        
-        
-        this._A_1st_SmallTurn_ = true;
-        
-        boolean TurnIsNotFinished = true;
-        
-        while (TurnIsNotFinished == true) {            
-            
-            if (this._A_1st_SmallTurn_ == true) {
-                
-                A.setPontos(A.getPontos() + BigTurnWeight);
-                //SmallTurn(A, B);
-                
-                TurnIsNotFinished = false;
-                
+        A.setPrimeiroDaRodada(true);
+        B.setPrimeiroDaRodada(false);
+
+        this.RodadaEmAndamento = true;
+
+        while (this.RodadaEmAndamento == true) {
+
+            if (A.PrimeiroDaRodada == true) {
+
+                A.setPontos(A.getPontos() + this.PesoDaMao);
+                SmallTurn(A, B);
+
+                //this.RodadaEmAndamento = false;
             } else {
-                
-                B.setPontos(B.getPontos() + BigTurnWeight);
-                //SmallTurn(B, A);
-                
-                TurnIsNotFinished = false;
-                
+
+                B.setPontos(B.getPontos() + this.PesoDaMao);
+                SmallTurn(B, A);
+
+                //this.RodadaEmAndamento = false;
             }
             //Break, end current BigTurn
         }
         //Increment winner points with BitTurnWeight
     }
-    
+
     public void SmallTurn(Player A, Player B) {
         
-        System.out.println("Printar opcoes");
+        OpcoesDeRodada(A, B);
+        
+        A.setPrimeiroDaRodada(false);
+        
+        B.setPrimeiroDaRodada(true);
 
-        //First Player gets possible options and choose        
-        //Second Player gets possible options and choose
-        //Settle small turn
-        //check if it ends BigHand
     }
-    
+
+    public void OpcoesDeRodada(Player A, Player B) {
+        A.ChamouTruco = false;
+        
+        if(B.ChamouTruco == true){
+            System.out.println("Jogador "+A.getNome()+" aceitas? [1]Sim [2]Nao");
+            int RespostaTruco = A.GetPlayerInput();
+            if(RespostaTruco == 1)
+                System.out.println("Aceitastes Truco");
+            if(RespostaTruco == 2){
+                System.out.println("Recusastes Truco");
+                RodadaEmAndamento = false;
+            }
+        }
+        
+        System.out.println("Rodada: Vez de Jogador " + A.getNome() + " suas opcoes sao:");
+        A.PHand.PrintHand();
+        System.out.println("[1][2][3]Jogar Cartas [4]Truco [5]Envido [6]Real Envido [7]Falta Envido [8]Flor [9]Fugir");
+
+        int PlayerInput = A.GetPlayerInput();
+
+        switch (PlayerInput) {
+            case 1:
+                System.out.println("Jogador escolheu jogar primeira carta");
+                break;
+            case 2:
+                System.out.println("Jogador escolheu jogar segunda carta");
+                break;
+            case 3:
+                System.out.println("Jogador escolheu jogar terceira carta");
+                break;                
+            case 4:
+                System.out.println("Chamou Truco");
+                A.ChamouTruco = true;
+                break;
+            case 5:
+                System.out.println("Chamou Envido");
+                break;
+            case 6:
+                System.out.println("Chamou Real Envido");
+                break;
+            case 7:
+                System.out.println("Chamou Falta Envido");
+                break;
+            case 8:
+                System.out.println("Cantou Flor");
+                break;
+            case 9:
+                System.out.println("Foi ao baralho");
+                break;
+            default:
+                System.out.println("Opcao Invalida");
+                break;
+        }
+
+    }
+
 }
