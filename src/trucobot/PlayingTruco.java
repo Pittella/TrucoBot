@@ -41,6 +41,7 @@ public class PlayingTruco {
 
     int PesoDaMao;      //Peso da Mao Em Andamento
     int PesoDeEnvido;   //Peso do envido
+    int CountRodada;    //Contador Numero da rodada
 
     public void DealCards(Hand A, Hand B) {
         MatchDeck.ShuffleDeckArray();
@@ -109,12 +110,10 @@ public class PlayingTruco {
     }
 
     public void BigTurn(Player A, Player B) {
-
-        //int BigTurnWeight = 1;
-        //int EnvidoWeight = 0;
-        this.PesoDaMao = 1;
+        
+        this.PesoDaMao = 1;        
         this.PesoDeEnvido = 0;
-
+        this.CountRodada = 1;
         A.setPrimeiroDaRodada(true);
         B.setPrimeiroDaRodada(false);
 
@@ -122,6 +121,11 @@ public class PlayingTruco {
 
         while (this.RodadaEmAndamento == true) {
 
+            if(this.CountRodada >=4){
+                this.RodadaEmAndamento = false;
+                break;
+            }
+                    
             if (A.PrimeiroDaRodada == true) {
 
                 A.setPontos(A.getPontos() + this.PesoDaMao);
@@ -135,13 +139,17 @@ public class PlayingTruco {
 
                 //this.RodadaEmAndamento = false;
             }
-            //Break, end current BigTurn
+            
+            this.CountRodada = this.CountRodada + 1;
+            
         }
         //Increment winner points with BitTurnWeight
     }
 
     public void SmallTurn(Player A, Player B) {
 
+        System.out.println("Rodada #"+this.CountRodada);
+        
         OpcoesDeRodada(A, B);
 
         A.setPrimeiroDaRodada(false);
