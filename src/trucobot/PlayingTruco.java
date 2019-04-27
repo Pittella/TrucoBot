@@ -1,3 +1,8 @@
+//TODO: 
+//Contabilizar envido antes de jogar uma carta para n bugar o calcenvido
+//Proibir chamar envido de novo na mesma rodada
+//rodada se empardar
+
 package trucobot;
 
 public class PlayingTruco {
@@ -6,11 +11,10 @@ public class PlayingTruco {
     public Card[] MesaA = new Card[3];
     public Card[] MesaB = new Card[3];
 
-    public boolean RodadaEmAndamento;  //Contador da rodada
-
-    int PesoDaMao;      //Peso da Mao Em Andamento
-    int PesoDeEnvido;   //Peso do envido
-    int CountRodada;    //Contador Numero da rodada
+    public boolean RodadaEmAndamento;       //Comentar seria legal
+    int PesoDaMao;      
+    int PesoDeEnvido;   
+    int CountRodada;    
 
     public void DealCards(Hand A, Hand B) {
         MatchDeck.ShuffleDeckArray();
@@ -20,7 +24,7 @@ public class PlayingTruco {
 
     public void Match(Player A, Player B) {
 
-        System.out.println("Iniciado Partida XD");
+        System.out.println("Iniciado Partida");
 
         System.out.println("Setando pontos " + A.getNome() + " e " + B.getNome() + " Zero");
         A.setPontos(0);
@@ -48,7 +52,7 @@ public class PlayingTruco {
 
             if (A.JogadorMao == true) {
 
-                System.out.println("A Primeiro Jogador");
+                System.out.println(A.getPlayerHand()+" Primeiro Jogador na mao");
 
                 MaoDoJogo(A, B);
 
@@ -57,7 +61,7 @@ public class PlayingTruco {
 
             } else {
 
-                System.out.println("B Primeiro Jogador");
+                System.out.println(B.getPlayerHand()+" Primeiro Jogador na mao");
 
                 MaoDoJogo(B, A);
 
@@ -74,7 +78,8 @@ public class PlayingTruco {
                 break;
             }
         }
-        //Match ENDS
+        
+        //Fim da Partida
 
     }
 
@@ -186,7 +191,7 @@ public class PlayingTruco {
             B.setPontos(B.getPontos() + this.PesoDaMao);
             
         }
-        //Increment winner points with BitTurnWeight
+        
     }
 
     public void RodadaDaMao(Player A, Player B) {
@@ -262,6 +267,16 @@ public class PlayingTruco {
 
             ChamouTruco(A, B);
 
+        } else if (EscolhaDaJogada == 5) {
+            
+            System.out.println(A.getNome() + " chamou envido");
+            
+            A.ChamouEnvido = true;
+            
+            B.ChamouEnvido = false;
+            
+            ChamouEnvido(A,B);
+            
         }
 
     }
@@ -294,6 +309,56 @@ public class PlayingTruco {
 
     }
 
+    public void ChamouEnvido(Player A, Player B){
+        
+        int RespostaEnvido;
+        
+        this.PesoDeEnvido = 1;
+                        
+        System.out.println(B.getNome() + " aceitas envido? (1)Sim (2)Nao");
+        
+        B.PHand.PrintHand();
+        
+        RespostaEnvido = B.GetPlayerInput();
+        
+        if(RespostaEnvido == 2){
+            
+            System.out.println(B.getNome()+" resusou envido A ganha "+this.PesoDeEnvido+" pontos");
+            
+            A.setPontos(A.getPontos() + this.PesoDeEnvido);
+        
+        } else if(RespostaEnvido == 1){
+            
+            System.out.println(B.getNome()+" aceitou envido");
+            
+            System.out.println(A.getNome()+" cantou "+A.PHand.CalcEnvido());
+            
+            System.out.println(B.getNome()+" cantou "+B.PHand.CalcEnvido());
+            
+            if(A.PHand.CalcEnvido() > B.PHand.CalcEnvido()){
+            
+                System.out.println(A.getNome()+" venceu disputa de Envido");
+                
+                A.setPontos(A.getPontos() + this.PesoDeEnvido);
+                
+            } else if(A.PHand.CalcEnvido() < B.PHand.CalcEnvido()){
+            
+                System.out.println(B.getNome()+" venceu disputa de Envido");
+                
+                B.setPontos(B.getPontos() + this.PesoDeEnvido);
+                
+            } else if(A.PHand.CalcEnvido() == B.PHand.CalcEnvido()){
+            
+                System.out.println("Envido empatou");
+            
+            }
+        
+        }
+        
+        
+        
+    }
+    
     public int ContabilizaCartasDaRodada(Card A, Card B, int Rodada) {
         
         if (A.peso > B.peso) {
