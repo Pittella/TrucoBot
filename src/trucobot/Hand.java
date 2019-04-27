@@ -12,11 +12,12 @@ public class Hand {
     }
 
     public void PrintHand() {
-        for (int i = 0; i < 3; i++) {
-            if (HandArray[i] != CartaVazia) {
-                System.out.printf("Carta %s (%d)\n", HandArray[i].Nome, i);
+        for (int i = 1; i < 4; i++) {
+            if (HandArray[i-1] != CartaVazia) {
+                System.out.printf("(%d)Carta %s ", i, HandArray[i-1].Nome);
             }
         }
+        System.out.printf("\n");
     }
 
     public void RemoveCard(int i) {
