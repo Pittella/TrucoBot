@@ -16,11 +16,14 @@ public class TrucoUI extends javax.swing.JFrame {
      */
         Player Mario = new Player();
         Player Luigi = new Player();
+        Hand p1;
+        Hand p2;
         int pontosP1;
         int pontosP2; 
         int cartaJogada = 0;
         int cartaJogada2 = 0;
-
+        PlayingTruco JogoDeTruco = new PlayingTruco();
+        
         
     public TrucoUI() {
         initComponents();
@@ -717,10 +720,9 @@ public class TrucoUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         btIniciarPartida.setVisible(false);
 
-        PlayingTruco JogoDeTruco = new PlayingTruco();
         JogoDeTruco.Match(Mario, Luigi);
-        Hand p1 = Mario.getPlayerHand();
-        Hand p2 = Luigi.getPlayerHand();
+        p1 = Mario.getPlayerHand();
+        p2 = Luigi.getPlayerHand();
 
         labelPlacarP1.setText(Mario.nome);
         labelPlacarP2.setText(Luigi.nome);
