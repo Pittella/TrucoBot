@@ -157,18 +157,18 @@ public class PlayingTruco {
                         default:
                             System.out.println("Error!!!!");
                             break;
-                    }                    
+                    }
                     PontosDaMaoB = PontosDaMaoB + 1;
                     B.PrimeiroDaRodada = true;
                     A.PrimeiroDaRodada = false;
                 } else {
                     System.out.println("Empardou a rodada #" + CountRodada);
-                    if(CountRodada == 1){
+                    if (CountRodada == 1) {
                         System.out.println("Empardou a primeira vale a segunda");
-                        
-                    } else if (CountRodada == 2){
+
+                    } else if (CountRodada == 2) {
                         System.out.println("Empardou a segunda vale a primeira");
-                        
+
                     }
 
                 }
@@ -317,6 +317,8 @@ public class PlayingTruco {
                 this.AlguemNaoAceitouTruco = true; //Aqui estou usando um artifício para ignorar setJogadorMao na Funcao Match
                 B.setJogadorMao(true);
                 A.setJogadorMao(false);
+                B.VezDeJogar = false;
+                A.VezDeJogar = false;
                 break;
             default:
                 System.out.println("Escolha invalida");

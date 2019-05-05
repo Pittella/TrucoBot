@@ -37,3 +37,4 @@ build/classes/trucobot/Player.class
 build/classes/trucobot/Hand.class
 *.xml
 *.class
+*.class
