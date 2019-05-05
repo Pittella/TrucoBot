@@ -20,6 +20,12 @@ public class Player {
     public boolean SegundoDaRodada;
     public boolean VezDeJogar;
     public boolean JogouUmaCarta;
+    public boolean PodeChamarOuAumentarTruco;
+    public boolean PodeChamarInvido;
+    public boolean PodeChamarFlor;    
+    public boolean VenceuPrimeiraRodada;
+    public boolean VenceuSegundaRodada;
+    public boolean VenceuTerceiraRodada;
     public boolean ChamouTruco;
     public boolean ChamouRetruco;
     public boolean ChamouVale4;
@@ -50,6 +56,7 @@ public class Player {
 
     public int GetPlayerInput() {
         return PlayerInput.nextInt();
+        //return 1;
     }
 
     public void setPontos(int Pontos) {
