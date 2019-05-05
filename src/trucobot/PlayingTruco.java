@@ -1,7 +1,5 @@
 //TODO: 
-//Contabilizar envido antes de jogar uma carta para n bugar o calcenvido
-//Proibir chamar envido de novo na mesma rodada
-//rodada se empardar
+//Apresentar
 package trucobot;
 
 public class PlayingTruco {
