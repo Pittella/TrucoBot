@@ -16,25 +16,58 @@ public class TrucoUI extends javax.swing.JFrame {
      */
         Player Mario = new Player();
         Player Luigi = new Player();
+        Hand p1 = new Hand();
+        Hand p2 = new Hand();
         int pontosP1;
-        int pontosP2; 
+        int pontosP2;
+        int totalCartas = 0;
         int cartaJogada = 0;
         int cartaJogada2 = 0;
-
+        PlayingTruco JogoDeTruco = new PlayingTruco();
+        
         
     public TrucoUI() {
         initComponents();
         Mario.setNome("Mario");
         Luigi.setNome("Luigi");
-        btNovoJogo.setVisible(false); // partida acabou, setar para visivel
-        btIniciarPartida.setVisible(true);
-        btP1Carta1.setVisible(false);
-        btP2Carta1.setVisible(false);
-        btP1Carta2.setVisible(false);
-        btP2Carta2.setVisible(false);
-        btP1Carta3.setVisible(false);
-        btP2Carta3.setVisible(false);
+        labelPlacarP1.setText(Mario.nome);
+        labelPlacarP2.setText(Luigi.nome);
+        labelScoreP1.setText("0");
+        labelScoreP2.setText("0");
+        btP1Carta1.setVisible(true);
+        btP2Carta1.setVisible(true);
+        btP1Carta2.setVisible(true);
+        btP2Carta2.setVisible(true);
+        btP1Carta3.setVisible(true);
+        btP2Carta3.setVisible(true);
+        btP1Carta1.setText("");
+        btP2Carta1.setText("");
+        btP1Carta2.setText("");
+        btP2Carta2.setText("");
+        btP1Carta3.setText("");
+        btP2Carta3.setText("");
         
+        if(totalCartas >= 6)
+        {
+            totalCartas = 0;
+            btP1Carta1.setText("");
+            btP2Carta1.setText("");
+            btP1Carta2.setText("");
+            btP2Carta2.setText("");
+            btP1Carta3.setText("");
+            btP2Carta3.setText("");
+            
+
+        }else {
+            p1 = Mario.getPlayerHand();
+            p2 = Luigi.getPlayerHand();
+            btP1Carta1.setText(p1.HandArray[0].Nome);
+            btP2Carta1.setText(p2.HandArray[0].Nome);
+            btP1Carta2.setText(p1.HandArray[1].Nome);
+            btP2Carta2.setText(p2.HandArray[1].Nome);
+            btP1Carta3.setText(p1.HandArray[2].Nome);
+            btP2Carta3.setText(p2.HandArray[2].Nome);
+        }
 
     }
 
@@ -716,28 +749,13 @@ public class TrucoUI extends javax.swing.JFrame {
     private void btIniciarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarPartidaActionPerformed
         // TODO add your handling code here:
         btIniciarPartida.setVisible(false);
+        new Thread(){
+            public void run(){
+                    JogoDeTruco.Match(Mario, Luigi);
+            }
+        }.start();
 
-        PlayingTruco JogoDeTruco = new PlayingTruco();
-        JogoDeTruco.Match(Mario, Luigi);
-        Hand p1 = Mario.getPlayerHand();
-        Hand p2 = Luigi.getPlayerHand();
 
-        labelPlacarP1.setText(Mario.nome);
-        labelPlacarP2.setText(Luigi.nome);
-        labelScoreP1.setText("0");
-        labelScoreP2.setText("0");
-        btP1Carta1.setText(p1.HandArray[0].Nome);
-        btP2Carta1.setText(p2.HandArray[0].Nome);
-        btP1Carta2.setText(p1.HandArray[1].Nome);
-        btP2Carta2.setText(p2.HandArray[1].Nome);
-        btP1Carta3.setText(p1.HandArray[2].Nome);
-        btP2Carta3.setText(p2.HandArray[2].Nome);
-        btP1Carta1.setVisible(true);
-        btP2Carta1.setVisible(true);
-        btP1Carta2.setVisible(true);
-        btP2Carta2.setVisible(true);
-        btP1Carta3.setVisible(true);
-        btP2Carta3.setVisible(true);
     }//GEN-LAST:event_btIniciarPartidaActionPerformed
 
     private void btNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoJogoActionPerformed
@@ -802,20 +820,23 @@ public class TrucoUI extends javax.swing.JFrame {
         switch (cartaJogada) {
             case 1:
                 labelCartaMesa1P1.setText(btP1Carta1.getText());
+                totalCartas++;
                 break;
 
             case 2:
                 labelCartaMesa2P1.setText(btP1Carta1.getText());
+                totalCartas++;
                 break;
 
             case 3:
                 labelCartaMesa3P1.setText(btP1Carta1.getText());
                 cartaJogada = 0;
+                totalCartas++;
                 break;
                 
             default:
                 // Não deve ocorrer
-                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                throw new IndexOutOfBoundsException("");
                 } 
          
     }//GEN-LAST:event_btP1Carta1ActionPerformed
@@ -828,19 +849,22 @@ public class TrucoUI extends javax.swing.JFrame {
         switch (cartaJogada) {
             case 1:
                 labelCartaMesa1P1.setText(btP1Carta2.getText());
+                totalCartas++;
                 break;
 
             case 2:
                 labelCartaMesa2P1.setText(btP1Carta2.getText());
+                totalCartas++;
                 break;
 
             case 3:
                 labelCartaMesa3P1.setText(btP1Carta2.getText());
                 cartaJogada = 0;
+                totalCartas++;
                 break;
             default:
                 // Não deve ocorrer
-                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                throw new IndexOutOfBoundsException("");
                 }
     }//GEN-LAST:event_btP1Carta2ActionPerformed
 
@@ -852,19 +876,22 @@ public class TrucoUI extends javax.swing.JFrame {
         switch (cartaJogada) {
             case 1:
                 labelCartaMesa1P1.setText(btP1Carta3.getText());
+                totalCartas++;
                 break;
 
             case 2:
                 labelCartaMesa2P1.setText(btP1Carta3.getText());
+                totalCartas++;
                 break;
 
             case 3:
                 labelCartaMesa3P1.setText(btP1Carta3.getText());
                 cartaJogada = 0;
+                totalCartas++;
                 break;
             default:
                 // Não deve ocorrer
-                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                throw new IndexOutOfBoundsException("");
                 }
     }//GEN-LAST:event_btP1Carta3ActionPerformed
 
@@ -875,20 +902,23 @@ public class TrucoUI extends javax.swing.JFrame {
         switch (cartaJogada2) {
             case 1:
                 labelCartaMesa1P2.setText(btP2Carta1.getText());
+                totalCartas++;
                 break;
 
             case 2:
                 labelCartaMesa2P2.setText(btP2Carta1.getText());
+                totalCartas++;
                 break;
 
             case 3:
                 labelCartaMesa3P2.setText(btP2Carta1.getText());
                 cartaJogada2 = 0;
+                totalCartas++;
                 break;
                 
             default:
                 // Não deve ocorrer
-                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                throw new IndexOutOfBoundsException("");
                 } 
     }//GEN-LAST:event_btP2Carta1ActionPerformed
 
@@ -899,20 +929,23 @@ public class TrucoUI extends javax.swing.JFrame {
         switch (cartaJogada2) {
             case 1:
                 labelCartaMesa1P2.setText(btP2Carta2.getText());
+                totalCartas++;
                 break;
 
             case 2:
                 labelCartaMesa2P2.setText(btP2Carta2.getText());
+                totalCartas++;
                 break;
 
             case 3:
                 labelCartaMesa3P2.setText(btP2Carta2.getText());
                 cartaJogada2 = 0;
+                totalCartas++;
                 break;
                 
             default:
                 // Não deve ocorrer
-                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                throw new IndexOutOfBoundsException("");
                 } 
     }//GEN-LAST:event_btP2Carta2ActionPerformed
 
@@ -923,20 +956,23 @@ public class TrucoUI extends javax.swing.JFrame {
         switch (cartaJogada2) {
             case 1:
                 labelCartaMesa1P2.setText(btP2Carta3.getText());
+                totalCartas++;
                 break;
 
             case 2:
                 labelCartaMesa2P2.setText(btP2Carta3.getText());
+                totalCartas++;
                 break;
 
             case 3:
                 labelCartaMesa3P2.setText(btP2Carta3.getText());
                 cartaJogada2 = 0;
+                totalCartas++;
                 break;
                 
             default:
                 // Não deve ocorrer
-                throw new IndexOutOfBoundsException("indice maior que o numero de colunas");
+                throw new IndexOutOfBoundsException("");
                 } 
     }//GEN-LAST:event_btP2Carta3ActionPerformed
 
@@ -1033,4 +1069,6 @@ public class TrucoUI extends javax.swing.JFrame {
     private javax.swing.JLabel labelScoreP2;
     private javax.swing.JLabel labelVezDeJogar;
     // End of variables declaration//GEN-END:variables
+
+
 }
