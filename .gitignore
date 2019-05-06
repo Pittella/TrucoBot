@@ -38,3 +38,6 @@ build/classes/trucobot/Hand.class
 *.xml
 *.class
 *.class
+*.xml
+*.class
+*.properties
