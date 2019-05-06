@@ -15,6 +15,7 @@ public class PlayingTruco {
     boolean ChamouFaltaInvido = false; //preciso disso pra ver se chamou falta
     boolean JaChamaraminvido = false;
     boolean AlguemNaoAceitouTruco = false;
+    boolean EmpardouPrimeira, EmpardouSegunda, EmpardouTerceira;
 
     public void DealCards(Hand A, Hand B) {
         MatchDeck.ShuffleDeckArray();
@@ -55,7 +56,7 @@ public class PlayingTruco {
                     this.AlguemNaoAceitouTruco = false;
                 }
             }
-            System.out.println("Placar A->" + A.getPontos() + " X " + B.getPontos() + "<-B");
+            System.out.println("Placar "+A.getNome()+"->" + A.getPontos() + " X " + B.getPontos() + "<-"+B.getNome());
             if (A.getPontos() >= 24) {
                 break;
             }
@@ -92,6 +93,10 @@ public class PlayingTruco {
         B.VenceuSegundaRodada = false;
         B.VenceuTerceiraRodada = false;
 
+        this.EmpardouPrimeira = false;
+        this.EmpardouSegunda = false;
+        this.EmpardouTerceira = false;
+
         while (this.RodadaEmAndamento == true) {
             if (this.CountRodada >= 4) {
                 this.RodadaEmAndamento = false;
@@ -121,13 +126,13 @@ public class PlayingTruco {
                             break;
                         case 2:
                             System.out.println(A.getNome() + " vence a rodada " + CountRodada);
-                            A.VenceuPrimeiraRodada = true;
-                            B.VenceuPrimeiraRodada = false;
+                            A.VenceuSegundaRodada = true;
+                            B.VenceuSegundaRodada = false;
                             break;
                         case 3:
                             System.out.println(A.getNome() + " vence a rodada " + CountRodada);
-                            A.VenceuPrimeiraRodada = true;
-                            B.VenceuPrimeiraRodada = false;
+                            A.VenceuTerceiraRodada = true;
+                            B.VenceuTerceiraRodada = false;
                             break;
                         default:
                             System.out.println("Error!!!!");
@@ -146,38 +151,91 @@ public class PlayingTruco {
                             break;
                         case 2:
                             System.out.println(B.getNome() + " vence a rodada " + CountRodada);
-                            B.VenceuPrimeiraRodada = true;
-                            A.VenceuPrimeiraRodada = false;
+                            B.VenceuSegundaRodada = true;
+                            A.VenceuSegundaRodada = false;
                             break;
                         case 3:
                             System.out.println(B.getNome() + " vence a rodada " + CountRodada);
-                            B.VenceuPrimeiraRodada = true;
-                            A.VenceuPrimeiraRodada = false;
+                            B.VenceuTerceiraRodada = true;
+                            A.VenceuTerceiraRodada = false;
                             break;
                         default:
                             System.out.println("Error!!!!");
                             break;
                     }
+                    
                     PontosDaMaoB = PontosDaMaoB + 1;
                     B.PrimeiroDaRodada = true;
-                    A.PrimeiroDaRodada = false;
+                    A.PrimeiroDaRodada = false;                    
+                    
                 } else {
                     System.out.println("Empardou a rodada #" + CountRodada);
-                    if (CountRodada == 1) {
-                        System.out.println("Empardou a primeira vale a segunda");
-
-                    } else if (CountRodada == 2) {
-                        System.out.println("Empardou a segunda vale a primeira");
-
+                    switch (CountRodada) {
+                        case 1:
+                            System.out.println("Empardou a primeira vale a segunda");
+                            PontosDaMaoA=0;
+                            PontosDaMaoB=0;
+                            this.EmpardouPrimeira = true;
+                            break;
+                        case 2:
+                            if (this.EmpardouPrimeira = true) {
+                                System.out.println("Empardou a primeira e segunda vale a terceira");
+                                PontosDaMaoA=0;
+                                PontosDaMaoB=0;
+                                this.EmpardouSegunda=true;
+                            } else {
+                                System.out.println("Empardou a segunda vale a primeira");
+                                this.EmpardouSegunda = true;
+                                PontosDaMaoA=0;
+                                PontosDaMaoB=0;
+                            }   break;
+                        case 3:
+                            System.out.println("Empardou primeira, segunda e terceira o mao vence");
+                            break;
+                        default:
+                            break;
                     }
 
                 }
+
+                if (this.EmpardouPrimeira == true && this.EmpardouSegunda == false && this.EmpardouTerceira == false) {
+                    if (CountRodada == 2) {
+                        System.out.println("Se empardou a primeira logo vale a segunda");
+                        if (A.VenceuSegundaRodada == true && B.VenceuSegundaRodada == false) {
+                            System.out.println(A.getNome() + "Venceu a segunda");
+                            PontosDaMaoA = 2;
+                            PontosDaMaoB = 0;
+                        } else if (B.VenceuSegundaRodada == true && A.VenceuSegundaRodada == false) {
+                            System.out.println(B.getNome() + "Venceu a segunda");
+                            PontosDaMaoA = 0;
+                            PontosDaMaoB = 2;
+                        }
+                    }
+                }
+
+                if (this.EmpardouPrimeira == false && this.EmpardouSegunda == true && this.EmpardouTerceira == false) {
+                    if (CountRodada == 2) {
+                        System.out.println("Se empardou a segunda logo vale a primeira");
+                        if (A.VenceuPrimeiraRodada == true) {
+                            System.out.println(A.getNome() + "Havia vencido a primeira rodada");
+                            PontosDaMaoA = 2;
+                            PontosDaMaoB = 0;
+                        } else if (B.VenceuPrimeiraRodada == true) {
+                            System.out.println(B.getNome() + "Havia vencido a primeira rodada");
+                            PontosDaMaoA = 0;
+                            PontosDaMaoB = 2;
+                        }
+                    }
+                }
+                
+                
                 if (PontosDaMaoA == 2) {
                     break;
                 }
                 if (PontosDaMaoB == 2) {
                     break;
                 }
+
                 this.CountRodada = this.CountRodada + 1;
                 if (this.CountRodada > 1) {
                     A.PodeChamarInvido = false;
@@ -227,9 +285,17 @@ public class PlayingTruco {
     public void OpcoesDeRodada(Player A, Player B) {
         int EscolhaDaJogada;
 
-        System.out.println("Jogador " + A.getNome() + " opcoes:");
 
+
+        //System.out.println("Mao de " + A.getNome() + ":");
+        System.out.printf("Mao de %s:",A.getNome());
         A.PHand.PrintHand();
+        //System.out.println("Mao de " + B.getNome() + ":");
+        System.out.printf("Mao de %s:",B.getNome());
+        B.PHand.PrintHand();
+        
+        System.out.println("Jogador a jogar" + A.getNome() + ", selecione sua jogada:");
+        
 
         if (A.PodeChamarOuAumentarTruco == true && A.PodeChamarInvido == true && A.PHand.ChecarFlor() == true) { //Adioonar flor && A.PodeChamarFlor == true
             System.out.println("(1)(2)(3)Cartas (4)Chamar/Aumentar o Jogo (5)Envido (6)Real Envido (7)Falta Envido (8)Flor (9)Ir ao Baralho ");
@@ -304,6 +370,8 @@ public class PlayingTruco {
                 break;
             case 8:
                 System.out.println(A.getNome() + " chamou Flor");
+                A.PodeChamarInvido = false;
+                B.PodeChamarInvido = false;
                 if (B.PHand.ChecarFlor() == true) {
                     System.out.println("Contra Flor é Proíbido!");
                 } else {
@@ -313,6 +381,7 @@ public class PlayingTruco {
             case 9:
                 System.out.println(A.getNome() + " Foi ao baralho");
                 System.out.println("Causando o fim da rodada");
+                B.setPontos(B.getPontos() + this.PesoDaMao);
                 this.RodadaEmAndamento = false;
                 this.AlguemNaoAceitouTruco = true; //Aqui estou usando um artifício para ignorar setJogadorMao na Funcao Match
                 B.setJogadorMao(true);
@@ -651,15 +720,15 @@ public class PlayingTruco {
     public int ContabilizaCartasDaRodada(Card A, Card B, int Rodada) {
 
         if (A.peso > B.peso) {
-
+            //A venceu
             return 1;
 
         } else if (A.peso < B.peso) {
-
+            //B venceu
             return 2;
 
         } else {
-
+            //Empardou
             return 3;
 
         }
