@@ -1,5 +1,7 @@
 package trucobot;
 
+import java.awt.event.KeyEvent;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -27,6 +29,7 @@ public class TrucoUI extends javax.swing.JFrame {
         
         
     public TrucoUI() {
+
         initComponents();
         Mario.setNome("Mario");
         Luigi.setNome("Luigi");
@@ -50,8 +53,7 @@ public class TrucoUI extends javax.swing.JFrame {
             public void run(){
                     JogoDeTruco.Match(Mario, Luigi);
             }
-        }.start();       
-
+        }.start();    
     }
 
     /**
@@ -704,7 +706,11 @@ public class TrucoUI extends javax.swing.JFrame {
     private void btFlorP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFlorP1ActionPerformed
         // TODO add your handling code here:
         int chamarFlor = 1;
-        Mario.GetPlayerInput(chamarFlor);
+        
+        //Mario.GetPlayerInput();
+
+
+        
         /*ClasseTeste chamouFlor = new ClasseTeste(); // cria variavel com valor de -1
         chamouFlor.setFlor(chamarFlor); // seta com o valor que eu determinei quando aperta o botao
         chamouFlor.print(); // system.out.println*/
@@ -745,19 +751,15 @@ public class TrucoUI extends javax.swing.JFrame {
     private void btIniciarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarPartidaActionPerformed
         // TODO add your handling code here:
         btIniciarPartida.setVisible(false);
-        /*new Thread(){
-            public void run(){
-                    JogoDeTruco.Match(Mario, Luigi);
-            }
-        }.start();*/
-            p1 = Mario.getPlayerHand();
-            p2 = Luigi.getPlayerHand();
-            btP1Carta1.setText(p1.HandArray[0].Nome);
-            btP2Carta1.setText(p2.HandArray[0].Nome);
-            btP1Carta2.setText(p1.HandArray[1].Nome);
-            btP2Carta2.setText(p2.HandArray[1].Nome);
-            btP1Carta3.setText(p1.HandArray[2].Nome);
-            btP2Carta3.setText(p2.HandArray[2].Nome);
+
+        p1 = Mario.getPlayerHand();
+        p2 = Luigi.getPlayerHand();
+        btP1Carta1.setText(p1.HandArray[0].Nome);
+        btP2Carta1.setText(p2.HandArray[0].Nome);
+        btP1Carta2.setText(p1.HandArray[1].Nome);
+        btP2Carta2.setText(p2.HandArray[1].Nome);
+        btP1Carta3.setText(p1.HandArray[2].Nome);
+        btP2Carta3.setText(p2.HandArray[2].Nome);
         
 
     }//GEN-LAST:event_btIniciarPartidaActionPerformed

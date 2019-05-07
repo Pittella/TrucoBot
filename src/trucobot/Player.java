@@ -54,11 +54,11 @@ public class Player {
         
     }
 
-    public int GetPlayerInput(int foo) {
-        //return PlayerInput.nextInt();
+    public int GetPlayerInput() {
+        return PlayerInput.nextInt();
         //return PlayerInput.nextLine();
         //return 1;
-        return foo;
+        //return foo;
     }
 
     public void setPontos(int Pontos) {
