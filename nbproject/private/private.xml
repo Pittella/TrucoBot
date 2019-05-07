@@ -3,7 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/Dudut/Documents/GitHub/TrucoBot/src/trucobot/Hand.java</file>
             <file>file:/C:/Users/Dudut/Documents/GitHub/TrucoBot/src/trucobot/PlayingTruco.java</file>
             <file>file:/C:/Users/Dudut/Documents/GitHub/TrucoBot/src/trucobot/TrucoUI.java</file>
@@ -12,20 +11,6 @@
             <file>file:/C:/Users/Dudut/Documents/GitHub/TrucoBot/src/trucobot/TrucoBot.java</file>
             <file>file:/C:/Users/Dudut/Documents/GitHub/TrucoBot/src/trucobot/Player.java</file>
             <file>file:/C:/Users/Dudut/Documents/GitHub/TrucoBot/src/trucobot/Deck.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/du/Documents/GitHub/TrucoBot/src/trucobot/TrucoBot.java</file>
-            <file>file:/C:/Users/du/Documents/GitHub/TrucoBot/src/trucobot/Deck.java</file>
-            <file>file:/C:/Users/du/Documents/GitHub/TrucoBot/src/trucobot/PlayingTruco.java</file>
-            <file>file:/C:/Users/du/Documents/GitHub/TrucoBot/src/trucobot/Player.java</file>
-            <file>file:/C:/Users/du/Documents/GitHub/TrucoBot/src/trucobot/TrucoUI.java</file>
-            <file>file:/C:/Users/du/Documents/GitHub/TrucoBot/src/trucobot/Hand.java</file>
-=======
-            <file>file:/C:/Users/Uxer/Documents/NetBeansProjects/TrucoBot/src/trucobot/PlayingTruco.java</file>
-            <file>file:/C:/Users/Uxer/Documents/NetBeansProjects/TrucoBot/src/trucobot/Player.java</file>
-            <file>file:/C:/Users/Uxer/Documents/NetBeansProjects/TrucoBot/src/trucobot/Hand.java</file>
->>>>>>> 6b4b315ff6e0b2988bb295c82c6d7dbba7f089bc
->>>>>>> c6a7a33598e5f748e2b469d627ac0f38d2d1336d
         </group>
     </open-files>
 </project-private>
