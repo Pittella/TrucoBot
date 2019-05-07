@@ -46,28 +46,19 @@ public class TrucoUI extends javax.swing.JFrame {
         btP2Carta2.setText("");
         btP1Carta3.setText("");
         btP2Carta3.setText("");
-        
-        if(totalCartas >= 6)
-        {
-            totalCartas = 0;
-            btP1Carta1.setText("");
-            btP2Carta1.setText("");
-            btP1Carta2.setText("");
-            btP2Carta2.setText("");
-            btP1Carta3.setText("");
-            btP2Carta3.setText("");
+        new Thread(){
+            public void run(){
+                    JogoDeTruco.Match(Mario, Luigi);
+            }
+        }.start();       
+
+            
+   
             
 
-        }else {
-            p1 = Mario.getPlayerHand();
-            p2 = Luigi.getPlayerHand();
-            btP1Carta1.setText(p1.HandArray[0].Nome);
-            btP2Carta1.setText(p2.HandArray[0].Nome);
-            btP1Carta2.setText(p1.HandArray[1].Nome);
-            btP2Carta2.setText(p2.HandArray[1].Nome);
-            btP1Carta3.setText(p1.HandArray[2].Nome);
-            btP2Carta3.setText(p2.HandArray[2].Nome);
-        }
+
+
+
 
     }
 
@@ -749,12 +740,20 @@ public class TrucoUI extends javax.swing.JFrame {
     private void btIniciarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarPartidaActionPerformed
         // TODO add your handling code here:
         btIniciarPartida.setVisible(false);
-        new Thread(){
+        /*new Thread(){
             public void run(){
                     JogoDeTruco.Match(Mario, Luigi);
             }
-        }.start();
-
+        }.start();*/
+            p1 = Mario.getPlayerHand();
+            p2 = Luigi.getPlayerHand();
+            btP1Carta1.setText(p1.HandArray[0].Nome);
+            btP2Carta1.setText(p2.HandArray[0].Nome);
+            btP1Carta2.setText(p1.HandArray[1].Nome);
+            btP2Carta2.setText(p2.HandArray[1].Nome);
+            btP1Carta3.setText(p1.HandArray[2].Nome);
+            btP2Carta3.setText(p2.HandArray[2].Nome);
+        
 
     }//GEN-LAST:event_btIniciarPartidaActionPerformed
 
@@ -821,6 +820,7 @@ public class TrucoUI extends javax.swing.JFrame {
             case 1:
                 labelCartaMesa1P1.setText(btP1Carta1.getText());
                 totalCartas++;
+                //Mario.GetPlayerInput(1);
                 break;
 
             case 2:

@@ -23,6 +23,7 @@ public class ClasseTeste implements Serializable {
     }
     
     public void print() { // print
-        System.out.println(florChamada);
+        System.out.print(florChamada);
+        System.out.printf("\n");
     }
 }
