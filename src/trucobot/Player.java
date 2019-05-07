@@ -54,13 +54,8 @@ public class Player {
         
     }
 
-    public int GetPlayerInput() {
+    public int GetPlayerInput(int foo) {
         //return PlayerInput.nextInt();
-        int foo;
-        String myString;
-        myString = PlayerInput.nextLine();
-        foo = Integer.parseInt(myString);
-        
         //return PlayerInput.nextLine();
         //return 1;
         return foo;
