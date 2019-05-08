@@ -56,7 +56,9 @@ public class Player {
 
     public int GetPlayerInput() {
         return PlayerInput.nextInt();
+        //return PlayerInput.nextLine();
         //return 1;
+        //return foo;
     }
 
     public void setPontos(int Pontos) {

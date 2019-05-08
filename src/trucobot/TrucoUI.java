@@ -1,5 +1,7 @@
 package trucobot;
 
+import java.awt.event.KeyEvent;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -27,6 +29,7 @@ public class TrucoUI extends javax.swing.JFrame {
         
         
     public TrucoUI() {
+
         initComponents();
         Mario.setNome("Mario");
         Luigi.setNome("Luigi");
@@ -46,29 +49,11 @@ public class TrucoUI extends javax.swing.JFrame {
         btP2Carta2.setText("");
         btP1Carta3.setText("");
         btP2Carta3.setText("");
-        
-        if(totalCartas >= 6)
-        {
-            totalCartas = 0;
-            btP1Carta1.setText("");
-            btP2Carta1.setText("");
-            btP1Carta2.setText("");
-            btP2Carta2.setText("");
-            btP1Carta3.setText("");
-            btP2Carta3.setText("");
-            
-
-        }else {
-            p1 = Mario.getPlayerHand();
-            p2 = Luigi.getPlayerHand();
-            btP1Carta1.setText(p1.HandArray[0].Nome);
-            btP2Carta1.setText(p2.HandArray[0].Nome);
-            btP1Carta2.setText(p1.HandArray[1].Nome);
-            btP2Carta2.setText(p2.HandArray[1].Nome);
-            btP1Carta3.setText(p1.HandArray[2].Nome);
-            btP2Carta3.setText(p2.HandArray[2].Nome);
-        }
-
+        new Thread(){
+            public void run(){
+                    JogoDeTruco.Match(Mario, Luigi);
+            }
+        }.start();    
     }
 
     /**
@@ -136,6 +121,7 @@ public class TrucoUI extends javax.swing.JFrame {
         btP2Carta1 = new javax.swing.JButton();
         btP2Carta2 = new javax.swing.JButton();
         btP2Carta3 = new javax.swing.JButton();
+        btProxRodada = new javax.swing.JButton();
 
         janelaTruco.setSize(new java.awt.Dimension(300, 195));
 
@@ -508,6 +494,13 @@ public class TrucoUI extends javax.swing.JFrame {
             }
         });
 
+        btProxRodada.setText("Proxima Rodada");
+        btProxRodada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btProxRodadaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -521,7 +514,7 @@ public class TrucoUI extends javax.swing.JFrame {
                             .addComponent(Carta1P1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(134, Short.MAX_VALUE)
+                        .addContainerGap(208, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btP1Carta2)
                             .addComponent(Carta2P1))
@@ -538,7 +531,10 @@ public class TrucoUI extends javax.swing.JFrame {
                                             .addComponent(labelVezDeJogar)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(jLabel2))
-                                        .addComponent(labelRodadasP1))
+                                        .addComponent(labelRodadasP1)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(10, 10, 10)
+                                            .addComponent(btProxRodada)))
                                     .addGap(42, 42, 42))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btP1Carta3)
@@ -562,7 +558,7 @@ public class TrucoUI extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(btFugirP1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(13, 13, 13))))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -607,7 +603,7 @@ public class TrucoUI extends javax.swing.JFrame {
                                 .addComponent(labelCartaMesa2P2)
                                 .addGap(18, 18, 18)
                                 .addComponent(labelCartaMesa3P2)))))
-                .addGap(0, 62, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btEnvidoP1, btEnvidoP2, btFlorP1, btFlorP2, btFugirP1, btFugirP2, btTrucoP1, btTrucoP2});
@@ -664,7 +660,7 @@ public class TrucoUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btP2Carta1)
                             .addComponent(btP2Carta3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
@@ -675,14 +671,15 @@ public class TrucoUI extends javax.swing.JFrame {
                             .addComponent(labelCartaMesa2P2)
                             .addComponent(labelCartaMesa3P2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addComponent(btProxRodada)
+                        .addGap(38, 38, 38)
                         .addComponent(labelRodadasP1)
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelCartaMesa1P1)
                             .addComponent(labelCartaMesa2P1)
                             .addComponent(labelCartaMesa3P1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -709,9 +706,14 @@ public class TrucoUI extends javax.swing.JFrame {
     private void btFlorP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFlorP1ActionPerformed
         // TODO add your handling code here:
         int chamarFlor = 1;
-        ClasseTeste chamouFlor = new ClasseTeste(); // cria variavel com valor de -1
+        
+        //Mario.GetPlayerInput();
+
+
+        
+        /*ClasseTeste chamouFlor = new ClasseTeste(); // cria variavel com valor de -1
         chamouFlor.setFlor(chamarFlor); // seta com o valor que eu determinei quando aperta o botao
-        chamouFlor.print(); // system.out.println
+        chamouFlor.print(); // system.out.println*/
     }//GEN-LAST:event_btFlorP1ActionPerformed
 
     private void btEnvidoP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnvidoP1ActionPerformed
@@ -749,12 +751,16 @@ public class TrucoUI extends javax.swing.JFrame {
     private void btIniciarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarPartidaActionPerformed
         // TODO add your handling code here:
         btIniciarPartida.setVisible(false);
-        new Thread(){
-            public void run(){
-                    JogoDeTruco.Match(Mario, Luigi);
-            }
-        }.start();
 
+        p1 = Mario.getPlayerHand();
+        p2 = Luigi.getPlayerHand();
+        btP1Carta1.setText(p1.HandArray[0].Nome);
+        btP2Carta1.setText(p2.HandArray[0].Nome);
+        btP1Carta2.setText(p1.HandArray[1].Nome);
+        btP2Carta2.setText(p2.HandArray[1].Nome);
+        btP1Carta3.setText(p1.HandArray[2].Nome);
+        btP2Carta3.setText(p2.HandArray[2].Nome);
+        
 
     }//GEN-LAST:event_btIniciarPartidaActionPerformed
 
@@ -821,6 +827,7 @@ public class TrucoUI extends javax.swing.JFrame {
             case 1:
                 labelCartaMesa1P1.setText(btP1Carta1.getText());
                 totalCartas++;
+                //Mario.GetPlayerInput(1);
                 break;
 
             case 2:
@@ -976,6 +983,10 @@ public class TrucoUI extends javax.swing.JFrame {
                 } 
     }//GEN-LAST:event_btP2Carta3ActionPerformed
 
+    private void btProxRodadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProxRodadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btProxRodadaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1038,6 +1049,7 @@ public class TrucoUI extends javax.swing.JFrame {
     private javax.swing.JButton btP2Carta1;
     private javax.swing.JButton btP2Carta2;
     private javax.swing.JButton btP2Carta3;
+    private javax.swing.JButton btProxRodada;
     private javax.swing.JButton btRealEnvido;
     private javax.swing.JButton btRecusarEnvido;
     private javax.swing.JButton btRetruco;
