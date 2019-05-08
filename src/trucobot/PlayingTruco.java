@@ -288,13 +288,13 @@ public class PlayingTruco {
 
 
         //System.out.println("Mao de " + A.getNome() + ":");
-        System.out.printf("Mao de %s:",A.getNome());
+        System.out.printf("Vez: Mao de %s:",A.getNome());
         A.PHand.PrintHand();
         //System.out.println("Mao de " + B.getNome() + ":");
-        System.out.printf("Mao de %s:",B.getNome());
+        System.out.printf("Outro: Mao de %s:",B.getNome());
         B.PHand.PrintHand();
         
-        System.out.println("Jogador a jogar" + A.getNome() + ", selecione sua jogada:");
+        System.out.println("Jogador a jogar " + A.getNome() + ", selecione sua jogada:");
         
 
         if (A.PodeChamarOuAumentarTruco == true && A.PodeChamarInvido == true && A.PHand.ChecarFlor() == true) { //Adioonar flor && A.PodeChamarFlor == true
