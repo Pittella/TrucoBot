@@ -374,6 +374,27 @@ public class PlayingTruco {
                 B.PodeChamarInvido = false;
                 if (B.PHand.ChecarFlor() == true) {
                     System.out.println("Contra Flor é Proíbido!");
+                    System.out.println(A.getNome() + " cantou " + A.PHand.CalcEnvido());
+
+                    System.out.println(B.getNome() + " cantou " + B.PHand.CalcEnvido());
+
+                    if (A.PHand.CalcEnvido() > B.PHand.CalcEnvido()) {
+
+                        System.out.println(A.getNome() + " venceu disputa de flor");
+
+                        A.setPontos(A.getPontos() + this.PesoDeInvido);
+
+                    } else if (A.PHand.CalcEnvido() < B.PHand.CalcEnvido()) {
+
+                        System.out.println(B.getNome() + " venceu disputa de flor");
+
+                        B.setPontos(B.getPontos() + this.PesoDeInvido);
+
+                    } else if (A.PHand.CalcEnvido() == B.PHand.CalcEnvido()) {
+
+                        System.out.println("Envido empatou");
+
+                    }
                 } else {
                     A.setPontos(A.getPontos() + 3);
                 }

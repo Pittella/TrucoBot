@@ -41,3 +41,4 @@ build/classes/trucobot/Hand.class
 *.xml
 *.class
 *.properties
+build/classes/trucobot/PlayingTruco.class
