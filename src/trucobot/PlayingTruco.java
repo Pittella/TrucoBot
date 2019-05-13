@@ -288,13 +288,13 @@ public class PlayingTruco {
 
 
         //System.out.println("Mao de " + A.getNome() + ":");
-        System.out.printf("Mao de %s:",A.getNome());
+        System.out.printf("Vez: Mao de %s:",A.getNome());
         A.PHand.PrintHand();
         //System.out.println("Mao de " + B.getNome() + ":");
-        System.out.printf("Mao de %s:",B.getNome());
+        System.out.printf("Outro: Mao de %s:",B.getNome());
         B.PHand.PrintHand();
         
-        System.out.println("Jogador a jogar" + A.getNome() + ", selecione sua jogada:");
+        System.out.println("Jogador a jogar " + A.getNome() + ", selecione sua jogada:");
         
 
         if (A.PodeChamarOuAumentarTruco == true && A.PodeChamarInvido == true && A.PHand.ChecarFlor() == true) { //Adioonar flor && A.PodeChamarFlor == true
@@ -374,6 +374,27 @@ public class PlayingTruco {
                 B.PodeChamarInvido = false;
                 if (B.PHand.ChecarFlor() == true) {
                     System.out.println("Contra Flor é Proíbido!");
+                    System.out.println(A.getNome() + " cantou " + A.PHand.CalcEnvido());
+
+                    System.out.println(B.getNome() + " cantou " + B.PHand.CalcEnvido());
+
+                    if (A.PHand.CalcEnvido() > B.PHand.CalcEnvido()) {
+
+                        System.out.println(A.getNome() + " venceu disputa de flor");
+
+                        A.setPontos(A.getPontos() + this.PesoDeInvido);
+
+                    } else if (A.PHand.CalcEnvido() < B.PHand.CalcEnvido()) {
+
+                        System.out.println(B.getNome() + " venceu disputa de flor");
+
+                        B.setPontos(B.getPontos() + this.PesoDeInvido);
+
+                    } else if (A.PHand.CalcEnvido() == B.PHand.CalcEnvido()) {
+
+                        System.out.println("Envido empatou");
+
+                    }
                 } else {
                     A.setPontos(A.getPontos() + 3);
                 }
