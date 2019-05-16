@@ -15,6 +15,7 @@ public class Player {
     
     //CBR stuff
     public boolean souBot;
+    //CBR stuff
 
     //Atributos boolean para fluxo da rodada
     public boolean JogadorMao;

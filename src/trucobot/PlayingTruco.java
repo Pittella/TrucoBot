@@ -322,7 +322,7 @@ public class PlayingTruco {
 
         //CBR stuff        
         if (A.souBot == true) {
-            //codigo do input do bot
+            //codigo do input do bot kkk
             EscolhaDaJogada = 1; //Cometar essa linha pq sem ela da erro por enquanto
         } else {
             //codigo do input player
