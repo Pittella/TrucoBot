@@ -12,6 +12,10 @@ public class Player {
     int Pontos, Vitorias;
     String nome;
     Scanner PlayerInput = new Scanner(System.in);
+    
+    //CBR stuff
+    public boolean souBot;
+    //CBR stuff
 
     //Atributos boolean para fluxo da rodada
     public boolean JogadorMao;
