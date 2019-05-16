@@ -2,7 +2,13 @@
 //Apresentar
 package trucobot;
 
+import cbr.cbrDescriptions.TrucoDescription;
+import cbr.Adaptacoes.ExemploCbrMaisSimilar;
+
 public class PlayingTruco {
+
+    public TrucoDescription gameState = new TrucoDescription();
+    public ExemploCbrMaisSimilar bot = new ExemploCbrMaisSimilar();
 
     Deck MatchDeck = new Deck();
     public Card[] MesaA = new Card[3];
@@ -24,6 +30,10 @@ public class PlayingTruco {
     }
 
     public void Match(Player A, Player B) {
+
+        //CBR stuff
+        A.souBot = false;
+        B.souBot = true;
 
         System.out.println("Iniciado Partida");
         System.out.println("Setando pontos " + A.getNome() + " e " + B.getNome() + " Zero");
@@ -56,7 +66,7 @@ public class PlayingTruco {
                     this.AlguemNaoAceitouTruco = false;
                 }
             }
-            System.out.println("Placar "+A.getNome()+"->" + A.getPontos() + " X " + B.getPontos() + "<-"+B.getNome());
+            System.out.println("Placar " + A.getNome() + "->" + A.getPontos() + " X " + B.getPontos() + "<-" + B.getNome());
             if (A.getPontos() >= 24) {
                 break;
             }
@@ -163,32 +173,33 @@ public class PlayingTruco {
                             System.out.println("Error!!!!");
                             break;
                     }
-                    
+
                     PontosDaMaoB = PontosDaMaoB + 1;
                     B.PrimeiroDaRodada = true;
-                    A.PrimeiroDaRodada = false;                    
-                    
+                    A.PrimeiroDaRodada = false;
+
                 } else {
                     System.out.println("Empardou a rodada #" + CountRodada);
                     switch (CountRodada) {
                         case 1:
                             System.out.println("Empardou a primeira vale a segunda");
-                            PontosDaMaoA=0;
-                            PontosDaMaoB=0;
+                            PontosDaMaoA = 0;
+                            PontosDaMaoB = 0;
                             this.EmpardouPrimeira = true;
                             break;
                         case 2:
                             if (this.EmpardouPrimeira = true) {
                                 System.out.println("Empardou a primeira e segunda vale a terceira");
-                                PontosDaMaoA=0;
-                                PontosDaMaoB=0;
-                                this.EmpardouSegunda=true;
+                                PontosDaMaoA = 0;
+                                PontosDaMaoB = 0;
+                                this.EmpardouSegunda = true;
                             } else {
                                 System.out.println("Empardou a segunda vale a primeira");
                                 this.EmpardouSegunda = true;
-                                PontosDaMaoA=0;
-                                PontosDaMaoB=0;
-                            }   break;
+                                PontosDaMaoA = 0;
+                                PontosDaMaoB = 0;
+                            }
+                            break;
                         case 3:
                             System.out.println("Empardou primeira, segunda e terceira o mao vence");
                             break;
@@ -227,8 +238,7 @@ public class PlayingTruco {
                         }
                     }
                 }
-                
-                
+
                 if (PontosDaMaoA == 2) {
                     break;
                 }
@@ -285,17 +295,14 @@ public class PlayingTruco {
     public void OpcoesDeRodada(Player A, Player B) {
         int EscolhaDaJogada;
 
-
-
         //System.out.println("Mao de " + A.getNome() + ":");
-        System.out.printf("Vez: Mao de %s:",A.getNome());
+        System.out.printf("Vez: Mao de %s:", A.getNome());
         A.PHand.PrintHand();
         //System.out.println("Mao de " + B.getNome() + ":");
-        System.out.printf("Outro: Mao de %s:",B.getNome());
+        System.out.printf("Outro: Mao de %s:", B.getNome());
         B.PHand.PrintHand();
-        
+
         System.out.println("Jogador a jogar " + A.getNome() + ", selecione sua jogada:");
-        
 
         if (A.PodeChamarOuAumentarTruco == true && A.PodeChamarInvido == true && A.PHand.ChecarFlor() == true) { //Adioonar flor && A.PodeChamarFlor == true
             System.out.println("(1)(2)(3)Cartas (4)Chamar/Aumentar o Jogo (5)Envido (6)Real Envido (7)Falta Envido (8)Flor (9)Ir ao Baralho ");
@@ -313,7 +320,15 @@ public class PlayingTruco {
             System.out.println("(1)(2)(3)Cartas (9)Ir ao Baralho ");
         }
 
-        EscolhaDaJogada = A.GetPlayerInput();
+        //CBR stuff        
+        if (A.souBot == true) {
+            //codigo do input do bot
+            EscolhaDaJogada = 1; //Cometar essa linha pq sem ela da erro por enquanto
+        } else {
+            //codigo do input player
+            EscolhaDaJogada = A.GetPlayerInput();
+
+        }
 
         switch (EscolhaDaJogada) {
             case 1:

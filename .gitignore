@@ -43,3 +43,7 @@ build/classes/trucobot/Hand.class
 *.properties
 build/classes/trucobot/PlayingTruco.class
 *.class
+*.xml
+*.class
+build/classes/trucobot/PlayingTruco.class
+nbproject/private/private.xml
