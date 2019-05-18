@@ -4,6 +4,9 @@ package trucobot;
 
 import cbr.cbrDescriptions.TrucoDescription;
 import cbr.Adaptacoes.ExemploCbrMaisSimilar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jcolibri.exception.ExecutionException;
 
 public class PlayingTruco {
 
@@ -293,7 +296,7 @@ public class PlayingTruco {
     }
 
     public void OpcoesDeRodada(Player A, Player B) {
-        int EscolhaDaJogada;
+        int EscolhaDaJogada = 0;
 
         //System.out.println("Mao de " + A.getNome() + ":");
         System.out.printf("Vez: Mao de %s:", A.getNome());
@@ -322,8 +325,12 @@ public class PlayingTruco {
 
         //CBR stuff        
         if (A.souBot == true) {
-            //codigo do input do bot kkk
-            EscolhaDaJogada = 1; //Cometar essa linha pq sem ela da erro por enquanto
+            try {
+                //codigo do input do bot kkk
+                EscolhaDaJogada = bot.jogaCarta(gameState, CountRodada); //Cometar essa linha pq sem ela da erro por enquanto
+            } catch (ExecutionException ex) {
+                Logger.getLogger(PlayingTruco.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             //codigo do input player
             EscolhaDaJogada = A.GetPlayerInput();
